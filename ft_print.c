@@ -1,5 +1,4 @@
-#include <unistd.h>
-#include <stdarg.h>
+#include "ft_print.h"
 
 /*
 va_list args = initialize arguments,
@@ -8,7 +7,21 @@ va_arg = pulls them from memory on by one
 va_end = just to tell the compiler to end
 */
 
-int	massive_if(char c, va_list args, int i)
+static char converter *my_array[12] =
+{
+	ft_putstr,
+	ft_putnbr,
+	ft_putnbr,
+	ft_putfloat,
+	ft_puthexa,
+	ft_putunsigned,
+	ft_putpointer,
+	ft_putoctal,
+	ft_putzerofill,
+	ft_putdecimal
+};
+
+/* int	massive_if(char c, va_list args, int i)
 {
 	if (c == '%s')
 		va_arg(args, char *)
@@ -50,9 +63,16 @@ int	massive_if(char c, va_list args, int i)
 	else
 		putstr(error)
 
+} */
+
+void	check_if_flag(char c)
+{
+	char	*flag = "cspdiouxXf%#-+";
+
+	
 }
 
-void	ft_printf(char *str, ...)
+int	ft_printf(const char *format, ...)
 {
 	int	i;
 	va_list args;
@@ -61,7 +81,8 @@ void	ft_printf(char *str, ...)
 	va_start(args, str);
 	while (str[i] != '\0')
 	{
-		i = massive_if(str[i], args, i);
+		if (str[i] == '%')
+			flag_converter(str[i + 1], args, i);
 		write(1, str[i], 1);
 	}
 	va_end(args);
