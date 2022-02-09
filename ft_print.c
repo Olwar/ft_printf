@@ -8,19 +8,47 @@ va_arg = pulls them from memory on by one
 va_end = just to tell the compiler to end
 */
 
-void	massive_if(char c, va_list args)
+int	massive_if(char c, va_list args, int i)
 {
-	if (c == "%s")
-		va_arg(args, char)
+	if (c == '%s')
+		va_arg(args, char *)
 		putstr
-	if (c == "%c")
+	else if (c == '%c')
 		va_arg(args, char)
 		putchar
-	if (c == "%d")
-		va_arg(args, char)
+	else if (c == '%d')
+		va_arg(args, int)
 		putnbr
-	if (c == "%f")
-	...
+	else if (c == '%f')
+		va_arg(args, float)
+		putfloat
+	else if (c == '%x')
+		va_arg(args, int)
+		puthexa
+	else if (c == '%u')
+		va_arg(args, unsigned int)
+		putunsigned
+	else if (c == '%p')
+		va_arg(args, void *)
+		putpointer
+	else if (c == '%%' || '\%')
+		putchar('%')
+	else if (c == '%o')
+		va_arg(args, int)
+		putoctal
+	else if (c == '%f')
+		va_arg(args, float)
+	else if (c == '%0')
+		va_arg(args, int)
+		putzerofill
+	else if (c == '%.')
+		va_arg(args, float)
+		putdecimal
+	else if (c == '\n' || c == '\t' || c == '\b' || c == '\f' || c == '\r' || \
+	c == '\v' || c == '\\' || c == '\n' || )
+		putchar(c)
+	else
+		putstr(error)
 
 }
 
@@ -33,8 +61,8 @@ void	ft_printf(char *str, ...)
 	va_start(args, str);
 	while (str[i] != '\0')
 	{
+		i = massive_if(str[i], args, i);
 		write(1, str[i], 1);
-		massive_if(str[i], args);
 	}
 	va_end(args);
 }
