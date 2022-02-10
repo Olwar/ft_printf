@@ -67,18 +67,23 @@ static const converter *my_array[12] =
 
 /* make flag 0-4 index, fieldt_with 5-... etc... */
 
-void	check_if_flag(char c)
+void	checker(t_list *pr)
+{
+
+}
+
+void	initializer(char c)
 {
 	t_list pr;
 	
+	pr.i = 0;
 	pr.flag = "#0- +";
 	pr.field_width = "123456789*";
 	pr.precision = ".";
 	pr.length_modifier = "hl"; /*hh, h, l, ll*/
 	pr.conversion_specifier = "diouxX";
 	pr.percent = "%";
-
-	while ()
+	checker(&pr);
 }
 
 int	ft_printf(const char *format, ...)
@@ -91,7 +96,7 @@ int	ft_printf(const char *format, ...)
 	while (format[i] != '\0')
 	{
 		if (format[i] == '%')
-			flag_converter(format[i + 1], args, i);
+			initializer(format[i + 1], args, i);
 		write(1, format[i], 1);
 	}
 	va_end(args);
