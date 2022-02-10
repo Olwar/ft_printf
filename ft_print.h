@@ -6,7 +6,7 @@
 /*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 14:26:06 by oairola           #+#    #+#             */
-/*   Updated: 2022/02/10 11:24:17 by oairola          ###   ########.fr       */
+/*   Updated: 2022/02/10 15:53:29 by oairola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,15 @@
 
 typedef char	converter(va_list args, char c, int i);
 
-
+typedef struct t_list
+{
+	char	*flag;
+	char	*field_width;
+	char 	*precision;
+	char	*length_modifier;
+	char	*conversion_specifier;
+	char	*percent;
+	int		i;
+}				t_list;
 
 #endif

@@ -7,7 +7,7 @@ va_arg = pulls them from memory on by one
 va_end = just to tell the compiler to end
 */
 
-static char converter *my_array[12] =
+static const converter *my_array[12] =
 {
 	ft_putstr,
 	ft_putnbr,
@@ -65,16 +65,20 @@ static char converter *my_array[12] =
 
 } */
 
+/* make flag 0-4 index, fieldt_with 5-... etc... */
+
 void	check_if_flag(char c)
 {
-	char	*flag = "#0- +";
-	char	*field_width = "123456789*";
-	char 	*precision = ".";
-	char	*length_modifier = "hl"; /*hh, h, l, ll*/
-	char	*conversion_specifiers = "diouxX";
-	char	*percent = "%"
+	t_list pr;
+	
+	pr.flag = "#0- +";
+	pr.field_width = "123456789*";
+	pr.precision = ".";
+	pr.length_modifier = "hl"; /*hh, h, l, ll*/
+	pr.conversion_specifier = "diouxX";
+	pr.percent = "%";
 
-
+	while ()
 }
 
 int	ft_printf(const char *format, ...)
@@ -83,12 +87,12 @@ int	ft_printf(const char *format, ...)
 	va_list args;
 
 	i = 0;
-	va_start(args, str);
-	while (str[i] != '\0')
+	va_start(args, format);
+	while (format[i] != '\0')
 	{
-		if (str[i] == '%')
-			flag_converter(str[i + 1], args, i);
-		write(1, str[i], 1);
+		if (format[i] == '%')
+			flag_converter(format[i + 1], args, i);
+		write(1, format[i], 1);
 	}
 	va_end(args);
 }
