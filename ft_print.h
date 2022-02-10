@@ -6,7 +6,7 @@
 /*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 14:26:06 by oairola           #+#    #+#             */
-/*   Updated: 2022/02/10 15:53:29 by oairola          ###   ########.fr       */
+/*   Updated: 2022/02/10 16:34:17 by oairola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ typedef struct t_list
 	char	*length_modifier;
 	char	*conversion_specifier;
 	char	*percent;
+	int		*array;
+	int		*temp;
 	int		i;
 }				t_list;
 

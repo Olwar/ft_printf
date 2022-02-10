@@ -67,9 +67,23 @@ static const converter *my_array[12] =
 
 /* make flag 0-4 index, fieldt_with 5-... etc... */
 
-void	checker(t_list *pr)
+void	add_info(t_list *pr)
 {
+	if (pr->array)
+	{
+		pr->temp = ft_intdup(pr->array, sizeof(pr->array) / sizeof(int));
+		free(pr->array);
+	}
+	pr->array = ft_intdup(pr->temp, sizeof(pr->temp) / sizeof(int) + sizeof(int));
+}
 
+void	checker(t_list *pr, char c)
+{
+	while (pr->flag[pr->i])
+	{
+		if (pr->flag[pr->i] == c)
+			add_info(&*pr);
+	}
 }
 
 void	initializer(char c)
@@ -83,7 +97,7 @@ void	initializer(char c)
 	pr.length_modifier = "hl"; /*hh, h, l, ll*/
 	pr.conversion_specifier = "diouxX";
 	pr.percent = "%";
-	checker(&pr);
+	checker(&pr, c);
 }
 
 int	ft_printf(const char *format, ...)
