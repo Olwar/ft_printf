@@ -67,9 +67,14 @@ static char converter *my_array[12] =
 
 void	check_if_flag(char c)
 {
-	char	*flag = "cspdiouxXf%#-+";
+	char	*flag = "#0- +";
+	char	*field_width = "123456789*";
+	char 	*precision = ".";
+	char	*length_modifier = "hl"; /*hh, h, l, ll*/
+	char	*conversion_specifiers = "diouxX";
+	char	*percent = "%"
 
-	
+
 }
 
 int	ft_printf(const char *format, ...)
