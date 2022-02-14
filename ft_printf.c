@@ -31,6 +31,7 @@ static const converter *myarray[31] =
 	ft_putll,
 	ft_puth,
 	ft_putl,
+	ft_putL,
 	ft_putnbr,
 	ft_putnbr_unsigned,
 	ft_putoctal,
@@ -94,9 +95,9 @@ void	initializer(char c, va_list args, int *i)
 	pr.flag = "#0- +";
 	pr.field_width = "zzzzz123456789*";
 	pr.precision = "zzzzzzzzzzzzzzz.";
-	pr.length_modifier = "zzzzzzzzzzzzzzzhhllhl"; /*hh, h, l, ll*/
-	pr.conversion_specifier = "zzzzzzzzzzzzzzzzzzzzzzdiouxXf";
-	pr.percent = "zzzzzzzzzzzzzzzzzzzzzzzzzzzzz%";
+	pr.length_modifier = "zzzzzzzzzzzzzzzhhllhlL"; /*hh, h, l, ll*/
+	pr.conversion_specifier = "zzzzzzzzzzzzzzzzzzzzzzzdiouxXf";
+	pr.percent = "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzz%";
 	checker(&pr, c);
 	pr.i = 0;
 	while (pr.info_array[pr.i] != NULL)
