@@ -7,7 +7,7 @@ va_arg = pulls them from memory on by one
 va_end = just to tell the compiler to end
 */
 
-static const converter *my_array[31] =
+static const converter *myarray[31] =
 {
 	ft_puthash, /* if o then first char is 0, if x then nonzero result = 0x */
 	ft_putzerofill,
@@ -45,12 +45,12 @@ static const converter *my_array[31] =
 
 void	add_info(t_list *pr)
 {
-	if (pr->array)
+	if (pr->info_array)
 	{
-		pr->temp = ft_intdup(pr->array, sizeof(pr->array) / sizeof(int));
-		free(pr->array);
+		pr->temp = ft_intdup(pr->info_array, sizeof(pr->info_array) / sizeof(int));
+		free(pr->info_array);
 	}
-	pr->array = ft_append(pr->temp, pr->i, sizeof(pr->temp) / sizeof(int) + sizeof(int));
+	pr->info_array = ft_append(pr->temp, pr->i, sizeof(pr->temp) / sizeof(int) + sizeof(int));
 }
 
 void	checker(t_list *pr, char c)
@@ -99,9 +99,9 @@ void	initializer(char c, va_list args, int *i)
 	pr.percent = "zzzzzzzzzzzzzzzzzzzzzzzzzzzzz%";
 	checker(&pr, c);
 	pr.i = 0;
-	while (pr.array[pr.i] != NULL)
+	while (pr.info_array[pr.i] != NULL)
 	{
-		converter[pr.array[pr.i]](args, pr.array, pr.i);
+		converter[pr.info_array[pr.i]](args, pr.info_array, pr.i);
 		pr.i++;
 	}
 }
