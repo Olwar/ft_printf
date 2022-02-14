@@ -1,4 +1,4 @@
-#include "ft_print.h"
+#include "ft_printf.h"
 
 /*
 va_list args = initialize arguments,
@@ -7,18 +7,40 @@ va_arg = pulls them from memory on by one
 va_end = just to tell the compiler to end
 */
 
-static const converter *my_array[12] =
+static const converter *my_array[31] =
 {
-	ft_putstr,
-	ft_putnbr,
-	ft_putnbr,
-	ft_putfloat,
-	ft_puthexa,
-	ft_putunsigned,
-	ft_putpointer,
-	ft_putoctal,
+	ft_puthash, /* if o then first char is 0, if x then nonzero result = 0x */
 	ft_putzerofill,
-	ft_putdecimal
+	ft_justify,
+	ft_putspace, /* print space if positive number, if not plus*/
+	ft_putsign, /* print + or - depending on number */
+	ft_putwidth,
+	ft_putwidth,
+	ft_putwidth,
+	ft_putwidth,
+	ft_putwidth,
+	ft_putwidth,
+	ft_putwidth,
+	ft_putwidth,
+	ft_putwidth,
+	ft_putwidth,
+	ft_putprecision,
+	ft_puthh,
+	ft_puthh,
+	ft_putll,
+	ft_putll,
+	ft_puth,
+	ft_putl,
+	ft_putnbr,
+	ft_putnbr_unsigned,
+	ft_putoctal,
+	ft_puthexa,
+	ft_puthexa,
+	ft_putchar,
+	ft_putstr,
+	ft_putpointer,
+	ft_putfloat,
+	ft_putperc
 };
 
 void	add_info(t_list *pr)
@@ -73,9 +95,15 @@ void	initializer(char c, va_list args, int *i)
 	pr.field_width = "zzzzz123456789*";
 	pr.precision = "zzzzzzzzzzzzzzz.";
 	pr.length_modifier = "zzzzzzzzzzzzzzzhhllhl"; /*hh, h, l, ll*/
-	pr.conversion_specifier = "zzzzzzzzzzzzzzzzzzzzzzdiouxX";
+	pr.conversion_specifier = "zzzzzzzzzzzzzzzzzzzzzzdiouxXf";
 	pr.percent = "zzzzzzzzzzzzzzzzzzzzzzzzzzzzz%";
 	checker(&pr, c);
+	pr.i = 0;
+	while (pr.array[pr.i] != NULL)
+	{
+		converter[pr.array[pr.i]](args, pr.array, pr.i);
+		pr.i++;
+	}
 }
 
 int	ft_printf(const char *format, ...)
