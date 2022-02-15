@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putzerofill.c                                   :+:      :+:    :+:   */
+/*   ft_putspace.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
+/*   By: olwar <olwar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/14 15:29:47 by oairola           #+#    #+#             */
-/*   Updated: 2022/02/14 15:46:49 by oairola          ###   ########.fr       */
+/*   Created: 2022/02/15 10:06:57 by olwar             #+#    #+#             */
+/*   Updated: 2022/02/15 10:17:35 by olwar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putzerofill(va_list args, int *info_array)
+void	ft_putspace(va_list args, int *info_array)
 {
 	int	i;
+	int value;
 
 	i = 0;
 	while (info_array[i] != NULL)
 	{
-		if (format[j] == 0)
+		if (info_array[i] == '+')
 		{
-			while (format[j] >= '1' && format[j] <= '9')
-			{
-				/* number_of_zeros = split into a string and then convert to an int */
-				number_of_zeros = ft_atoi(format_part)
-			}
-			while (k < number_of_zeros)
-			{
-				ft_putchar('0');
-				k++;
-			}
+			ft_putsign(args, info_array);
+			return ;
 		}
 	}
+	i = 0;
+	value = ft_atoi(va_arg(args, int));
+	if (value >= 0)
+		write(1, ' ', 1);
 }
