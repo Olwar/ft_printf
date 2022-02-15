@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_puthash.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
+/*   By: olwar <olwar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 11:55:03 by oairola           #+#    #+#             */
-/*   Updated: 2022/02/14 15:29:10 by oairola          ###   ########.fr       */
+/*   Updated: 2022/02/15 13:26:17 by olwar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,6 @@ void	ft_puthash(va_list args, int *info_array)
 			else
 				ft_error_exit("error");
 		}
+		i++;
 	}
 }

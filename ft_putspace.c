@@ -6,7 +6,7 @@
 /*   By: olwar <olwar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 10:06:57 by olwar             #+#    #+#             */
-/*   Updated: 2022/02/15 10:17:35 by olwar            ###   ########.fr       */
+/*   Updated: 2022/02/15 13:26:32 by olwar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	ft_putspace(va_list args, int *info_array)
 			ft_putsign(args, info_array);
 			return ;
 		}
+		i++;
 	}
 	i = 0;
 	value = ft_atoi(va_arg(args, int));
