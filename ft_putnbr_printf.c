@@ -6,7 +6,7 @@
 /*   By: olwar <olwar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 12:00:16 by olwar             #+#    #+#             */
-/*   Updated: 2022/02/15 16:06:03 by olwar            ###   ########.fr       */
+/*   Updated: 2022/02/16 09:33:10 by olwar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	ft_put_d_and_i(va_list args, char *info_array)
 		if (info_array[i] == 22)
 			output_as_long_double /* datatype's gotta be float f */
 		if (info_array[i] == 25) /* . */
-			/* minimum_number_of_ints (is smaller then just add 0s) */
+			/* minimum_number_of_ints (if smaller then just add 0s) */
 	}
 	a = (long int)n;
 	ft_putlongnbr(a);

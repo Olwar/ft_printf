@@ -7,7 +7,7 @@ va_arg = pulls them from memory on by one
 va_end = just to tell the compiler to end
 */
 
-static const t_converter *myarray[31] =
+static const t_converter *myarray[33] =
 {
 	ft_puthash, /* if o then first char is 0, if x then nonzero result = 0x */
 	ft_putzerofill,
@@ -71,22 +71,27 @@ void	initializer(char c, va_list args, int *i)
 	t_list	pr;
 
 	pr.i = 0;
-	/* to remember:    0123456789012345678901234567890 */
-	pr.all_the_info = "#0- +123456789*.hhllhlLdiouxXf%";
+	/* to remember:    0123456789012345678901234567890123 */
+	pr.all_the_info = "#0- +123456789*.hhllhlLdiouxXcspf%";
 	checker(&pr, c);
 	pr.i = 0;
 	while (pr.info_array[pr.i] != NULL)
 	{
-		t_converter[pr.info_array[pr.i]](args, pr.info_array, pr.i);
+		if ((pr.i >= 0 && pr.i <= 14) || (pr.i >= 23))
+		{
+			t_converter[pr.info_array[pr.i]](args, pr.info_array, pr.i);
+		}
 		pr.i++;
 	}
 }
+
 
 int	ft_printf(const char *format, ...)
 {
 	int		i;
 	va_list	args;
 	char	*special_string_part;
+	char	*format_part;
 
 	i = 0;
 	va_start(args, format);
@@ -94,6 +99,7 @@ int	ft_printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
+			format_part = cutter(format, &i); /* cuts the formatter part */
 			special_string_part = initializer(format[i + 1], args, &i); 
 			special_printer_for_my_special_baby(special_string_part);
 		}
