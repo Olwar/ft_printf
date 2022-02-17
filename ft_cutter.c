@@ -6,11 +6,30 @@
 /*   By: olwar <olwar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 09:59:44 by olwar             #+#    #+#             */
-/*   Updated: 2022/02/17 15:31:50 by olwar            ###   ########.fr       */
+/*   Updated: 2022/02/17 16:07:34 by olwar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+char	*ft_zstrsub(char const *s, unsigned int start, size_t len)
+{
+	char	*s2;
+	size_t	a;
+
+	a = 0;
+	s2 = (char *)malloc(sizeof(char) * len + 1);
+	if (s2 == NULL)
+		return (NULL);
+	while (a != len)
+	{
+		s2[a] = s[start];
+		start++;
+		a++;
+	}
+	s2[a] = '\0';
+	return (s2);
+}
 
 char	*ft_cutter(char *format, int *i)
 {
@@ -25,10 +44,10 @@ char	*ft_cutter(char *format, int *i)
 		|| format[*i] == 'c' || format[*i] == 's' || format[*i] == 'p' \
 		|| format[*i] == 'f')
 		{
-			cut_string = ft_strsub(format, start, i);
+			cut_string = ft_zstrsub(format, start + 1, (*i) - start);
 			break ;
 		}
-		*i++;
+		(*i)++;
 	}
 	return (cut_string);
 }
