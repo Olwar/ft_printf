@@ -6,7 +6,7 @@
 /*   By: olwar <olwar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 14:08:33 by olwar             #+#    #+#             */
-/*   Updated: 2022/02/15 16:05:27 by olwar            ###   ########.fr       */
+/*   Updated: 2022/02/17 08:49:38 by olwar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	ft_putlongnbr(int n)
 		ft_putchar(n + '0');
 }
 
-void	ft_puthexa(va_list args, int *info_array)
+void	ft_puthexa_lower(va_list args, int *info_array)
 {
 	long int	a;
 	int			i;

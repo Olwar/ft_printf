@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: oairola <oairola@student.42.fr>            +#+  +:+       +#+         #
+#    By: olwar <olwar@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/01 14:43:10 by oairola           #+#    #+#              #
-#    Updated: 2022/01/25 15:49:53 by oairola          ###   ########.fr        #
+#    Updated: 2022/02/17 09:06:28 by olwar            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,7 @@ HEADERS = libft.h
 all: $(NAME)
 
 $(NAME):
-	gcc -Wall -Wextra -Werror -c $(SOURCES) -I $(HEADERS)
+	gcc -c $(SOURCES) -I $(HEADERS)
 	ar rc $(NAME) $(OBJECTS)
 
 clean:
