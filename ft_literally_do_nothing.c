@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putfloat.c                                      :+:      :+:    :+:   */
+/*   ft_literally_do_nothing.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olwar <olwar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 14:09:06 by olwar             #+#    #+#             */
-/*   Updated: 2022/02/17 11:23:41 by olwar            ###   ########.fr       */
+/*   Updated: 2022/02/17 14:36:16 by olwar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_float(double myfloat, int limiter)
+void	ft_dloat(double myfloat, int limiter)
 {
 	signed long int	decipart;
 	signed long int	intpart;
@@ -34,7 +34,7 @@ void	ft_float(double myfloat, int limiter)
 	ft_printf("%061d", decipart);
 }
 
-void	ft_putfloat(va_list args, t_node *head, char *format_part)
+void	ft_literally_do_nothing(va_list args, t_node *head, char *format_part)
 {
 	long int	a;
 	int			i;

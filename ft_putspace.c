@@ -6,23 +6,24 @@
 /*   By: olwar <olwar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 10:06:57 by olwar             #+#    #+#             */
-/*   Updated: 2022/02/15 13:26:32 by olwar            ###   ########.fr       */
+/*   Updated: 2022/02/17 14:35:43 by olwar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putspace(va_list args, int *info_array)
+void	ft_putspace(va_list args, t_node *head, char *format_part)
 {
 	int	i;
 	int value;
+	t_node		*ptr;
 
 	i = 0;
-	while (info_array[i] != NULL)
+	while (ptr != NULL)
 	{
-		if (info_array[i] == '+')
+		if (ptr->data == '+')
 		{
-			ft_putsign(args, info_array);
+			ft_putsign(args, head, format_part);
 			return ;
 		}
 		i++;

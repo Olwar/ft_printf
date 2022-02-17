@@ -6,13 +6,13 @@
 /*   By: olwar <olwar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 10:18:13 by olwar             #+#    #+#             */
-/*   Updated: 2022/02/15 10:23:01 by olwar            ###   ########.fr       */
+/*   Updated: 2022/02/17 11:30:28 by olwar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putsign(va_list args, int *info_array)
+void	ft_putsign(va_list args, t_node *head, char *format_part)
 {
 	int	value;
 

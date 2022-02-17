@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_error_exit.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
+/*   By: olwar <olwar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 15:10:57 by oairola           #+#    #+#             */
-/*   Updated: 2022/02/14 15:11:58 by oairola          ###   ########.fr       */
+/*   Updated: 2022/02/17 14:58:22 by olwar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void	ft_error_exit(char *str)
 {
-	write(2, str, ft_strlen(str));
+	write(2, &str, ft_strlen(str));
 	exit(1);
 }

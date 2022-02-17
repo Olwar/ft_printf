@@ -1,29 +1,26 @@
-#include <stdio.h>
+/* #include <stdio.h>
 #include "ft_printf.h"
 
-void ft_float(float myfloat)
+static void	ft_putblex(int n)
 {
-  //double myfloat;
-  signed long int decipart;
-  signed long int intpart;
-
-  //myfloat = va_arg(*ap, double);
-  if (myfloat < 0)
-  {
-      ft_putchar('-');
-      myfloat *= -1;
-  }
-  intpart = (signed long int)myfloat;
-  ft_putnbr(intpart);
-  ft_putchar('.');
-  myfloat -= intpart;
-  myfloat *= 1000000;  //upto 6 decimal points
-  decipart = (signed long int)(myfloat + 0.5); //+0.5 to round of the value
-  ft_putnbr(decipart);
+	if (n < 0)
+	{
+		ft_putchar('-');
+		ft_puthex(-n);
+	}
+	else if (n / 16 != 0)
+	{
+		ft_puthex(n / 16);
+		ft_puthex(n % 16);
+	}
+	else if (n >= 0 && n <= 9)
+		ft_putchar(n + '0');
+	else
+		ft_putchar((n - 10) + 'a');
 }
 
-int main(void)
+int zain(void)
 {
-	ft_float(11.0);
-	printf("\n%.0f\n", 11.0);
-}
+	ft_puthex(4000);
+	printf("\n%x\n", 4000);
+} */

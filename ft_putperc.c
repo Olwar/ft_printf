@@ -6,13 +6,13 @@
 /*   By: olwar <olwar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 15:09:58 by olwar             #+#    #+#             */
-/*   Updated: 2022/02/15 15:10:46 by olwar            ###   ########.fr       */
+/*   Updated: 2022/02/17 11:30:19 by olwar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putperc(va_list args, int *info_array)
+void	ft_putperc(va_list args, t_node *head, char *format_part)
 {
 	write(1, '%', 1);
 }

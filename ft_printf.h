@@ -6,7 +6,7 @@
 /*   By: olwar <olwar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 12:14:24 by oairola           #+#    #+#             */
-/*   Updated: 2022/02/17 10:25:42 by olwar            ###   ########.fr       */
+/*   Updated: 2022/02/17 14:29:08 by olwar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,29 +25,30 @@ typedef struct t_printflist
 	int		*info_array;
 }				t_prlist;
 
-typedef struct s_list
+typedef struct t_node
 {
-	int			data;
-	t_node		*next;
+	int				data;
+	struct t_node	*next;
 }			t_node;
 
 
-typedef void	t_converter(va_list args, int *info_array);
+typedef void	t_converter(va_list args, t_node *head, char *format_part);
 
-void	ft_puthash(va_list args, int *info_array);
-void	ft_putzerofill(va_list args, int *info_array);
-void	ft_putspace(va_list args, int *info_array);
-void	ft_putsign(va_list args, int *info_array);
-void	ft_putwidth(va_list args, int *info_array);
-/* void	ft_put_d_and_i(va_list args, char *info_array); */
-void	ft_putoctal(va_list args, int *info_array);
-void	ft_putfloat(va_list args, int *info_array);
-void	ft_putstr_printf(va_list args, int *info_array);
-int		*ft_append(int const *src, int appendable, size_t len);
-void	ft_puthexa_lower(va_list args, int *info_array);
-void	ft_puthexa_upper(va_list args, int *info_array);
-void	ft_putperc(va_list args, int *info_array);
-void	ft_putpointer(va_list args, int *info_array);
+void	ft_puthash(va_list args, t_node *head, char *format_part);
+void	ft_putzerofill(va_list args, t_node *head, char *format_part);
+void	ft_putspace(va_list args, t_node *head, char *format_part);
+void	ft_putsign(va_list args, t_node *head, char *format_part);
+void	ft_putwidth(va_list args, t_node *head, char *format_part);
+void	ft_put_d_and_i(va_list args, t_node *head, char *format_part);
+void	ft_putoctal(va_list args, t_node *head, char *format_part);
+void	ft_putfloat(va_list args, t_node *head, char *format_part);
+void	ft_putstr_printf(va_list args, t_node *head, char *format_part);
+/* int		*ft_append(int const *src, int appendable, size_t len); */
+void	ft_puthexa_lower(va_list args, t_node *head, char *format_part);
+void	ft_puthexa_upper(va_list args, t_node *head, char *format_part);
+void	ft_putperc(va_list args, t_node *head, char *format_part);
+void	ft_putpointer(va_list args, t_node *head, char *format_part);
+void	ft_literally_do_nothing(va_list args, t_node *head, char *format_part);
 
 
 #endif 

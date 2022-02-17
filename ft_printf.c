@@ -11,7 +11,7 @@ static const t_converter *myarray[33] =
 {
 	ft_puthash, /* if o then first char is 0, if x then nonzero result = 0x */
 	ft_putzerofill,
-	ft_justify,
+	ft_literally_do_nothing,
 	ft_putspace, /* print space if positive number, if not plus*/
 	ft_putsign, /* print + or - depending on number */
 	ft_putwidth,
@@ -24,16 +24,16 @@ static const t_converter *myarray[33] =
 	ft_putwidth,
 	ft_putwidth,
 	ft_putwidth,
-	ft_putprecision,
-	ft_puthh,
-	ft_puthh,
-	ft_putll,
-	ft_putll,
-	ft_puth,
-	ft_putl,
-	ft_putL,
-	ft_putnbr_printf,
-	ft_putnbr_unsigned,
+	ft_literally_do_nothing,
+	ft_literally_do_nothing,
+	ft_literally_do_nothing,
+	ft_literally_do_nothing,
+	ft_literally_do_nothing,
+	ft_literally_do_nothing,
+	ft_literally_do_nothing,
+	ft_literally_do_nothing,
+	ft_literally_do_nothing,
+	ft_literally_do_nothing,
 	ft_putoctal,
 	ft_puthexa_lower,
 	ft_puthexa_upper,
@@ -117,7 +117,7 @@ char	*initializer(char *format_part, va_list args)
 	{
 		if ((ptr->data >= 0 && ptr->data <= 14) || (ptr->data >= 23))
 		{
-			myarray[ptr->data](args, head);
+			myarray[ptr->data](args, head, format_part);
 		}
 		ptr = ptr->next;
 	}
@@ -137,13 +137,13 @@ int	ft_printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			format_part = cutter(format, &i); /* cuts the formatter part */
+			format_part = ft_cutter(format, &i); /* cuts the formatter part */
 			initializer(format_part, args); 
 			/* special_printer_for_my_special_baby(special_string_part); */
 			i--;
 		}
 		else
-			write(1, format[i], 1);
+			write(1, &format[i], 1);
 	}
 	va_end(args);
 }
