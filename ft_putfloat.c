@@ -6,7 +6,7 @@
 /*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 14:09:06 by olwar             #+#    #+#             */
-/*   Updated: 2022/02/21 13:40:06 by oairola          ###   ########.fr       */
+/*   Updated: 2022/02/21 16:51:34 by oairola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@ void	ft_float(double myfloat, int limiter)
 {
 	signed long int	decipart;
 	signed long int	intpart;
+	int				i;
 
+	i = -1;
 	if (myfloat < 0)
 	{
 		ft_putchar('-');
@@ -27,11 +29,20 @@ void	ft_float(double myfloat, int limiter)
 	ft_putchar('.');
 	myfloat -= intpart;
 	if (limiter == 0)
+	{
 		myfloat *= 1000000;  //upto 6 decimal points
+		if (myfloat == 0)
+		{
+			while (++i < 6)
+				ft_putnbr(0);
+		}
+	}
 	else
+	{
 		myfloat *= ((10 * limiter) / 10);
-	decipart = (signed long int)(myfloat + 0.5); //+0.5 to round of the value
-	ft_printf("%061d", decipart);
+		decipart = (signed long int)(myfloat + 0.5); //+0.5 to round of the value
+		ft_putnbr(decipart);
+	}
 }
 
 void	ft_putfloat(va_list args, t_node *head, char *format_part)
@@ -49,5 +60,7 @@ void	ft_putfloat(va_list args, t_node *head, char *format_part)
 			while (format_part[++j] != '\0')
 				if (format_part[j] == '.')
 					ft_float(va_arg(args, double), ft_atoi(&format_part[j]));
+		ft_float(va_arg(args, double), 0);
+		ptr = ptr->next;
 	}
 }

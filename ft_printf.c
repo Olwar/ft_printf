@@ -32,6 +32,7 @@ t_converter *myarray[34] =
 	ft_literally_do_nothing,
 	ft_literally_do_nothing,
 	ft_literally_do_nothing,
+	ft_literally_do_nothing,
 	ft_putnbr_printf,
 	ft_putoctal,
 	ft_puthexa_lower,
@@ -145,7 +146,8 @@ void	initializer(char *format_part, va_list args)
 	t_node		*head;
 	t_node		*ptr;
 	/* to remember:    0123456789012345678901234567890123 */
-	pr.all_the_info = "#0- +123456789*.hhllhlLdiouxXcspf%";
+	/* add L */
+	pr.all_the_info = "#0- +123456789*.hhllhldiouxXcspf%";
 	head = checker(&pr, format_part);
 	ptr = head;
 	pr.i = 0;
