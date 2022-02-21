@@ -5,12 +5,12 @@ int main(void)
 {
 	char *str = "Ma'am";
 	
-	printf("hello");
+/* 	printf("hello");
 	system("whoami");
 	printf("\ntesting string:\n");
 	ft_printf("\tHello\n");
 	printf("\tHello\n");
-	printf("\ntesting another string:\n");
+	printf("\ntesting another string:\n"); */
 	ft_printf("\tHello %s\n", str);
 	printf("\tHello %s\n", str);
 	exit(1);

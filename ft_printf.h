@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olwar <olwar@student.42.fr>                +#+  +:+       +#+        */
+/*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 12:14:24 by oairola           #+#    #+#             */
-/*   Updated: 2022/02/17 14:29:08 by olwar            ###   ########.fr       */
+/*   Updated: 2022/02/21 11:05:34 by oairola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,6 @@ void	ft_puthexa_upper(va_list args, t_node *head, char *format_part);
 void	ft_putperc(va_list args, t_node *head, char *format_part);
 void	ft_putpointer(va_list args, t_node *head, char *format_part);
 void	ft_literally_do_nothing(va_list args, t_node *head, char *format_part);
-
+char	*ft_cutter(char *format, int *i);
 
 #endif 

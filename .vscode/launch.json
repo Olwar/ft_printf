@@ -5,30 +5,15 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
-			"name": "clang-10 - Build and debug active file",
+			"name": "clang - ft_printf",
 			"type": "cppdbg",
 			"request": "launch",
-			"program": "${workspaceFolder}\\a.out",
-			"args": [],
-			"stopAtEntry": false,
+			"program": "${workspaceFolder}/a.out",
+			"stopAtEntry": true,
 			"cwd": "${workspaceFolder}",
 			"environment": [],
 			"externalConsole": false,
-			"MIMode": "lldb",
-			"setupCommands": [
-				{
-					"description": "Enable pretty-printing for gdb",
-					"text": "-enable-pretty-printing",
-					"ignoreFailures": true
-				},
-				{
-					"description": "Set Disassembly Flavor to Intel",
-					"text": "-gdb-set disassembly-flavor intel",
-					"ignoreFailures": true
-				}
-			],
-			"preLaunchTask": "C/C++: clang-10 build active file",
-			"miDebuggerPath": "/usr/bin/lldb-mi-10"
+			"MIMode": "lldb"
 		}
 	]
 }
