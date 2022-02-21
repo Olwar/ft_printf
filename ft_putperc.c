@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putperc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olwar <olwar@student.42.fr>                +#+  +:+       +#+        */
+/*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 15:09:58 by olwar             #+#    #+#             */
-/*   Updated: 2022/02/17 11:30:19 by olwar            ###   ########.fr       */
+/*   Updated: 2022/02/21 15:18:57 by oairola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,25 @@
 
 void	ft_putperc(va_list args, t_node *head, char *format_part)
 {
-	write(1, '%', 1);
+	char	c;
+	t_node	*ptr;
+	int		i;
+
+	ptr = head;
+	i = -1;
+	while (ptr != NULL)
+	{
+		if (ptr->data == 33)
+		{
+			while (format_part[++i])
+			{
+				if (format_part[i] == '%')
+				{
+					c = va_arg(args, int);
+					write(1, &c, 1);
+				}
+			}
+		}
+		ptr = ptr->next;
+	}
 }

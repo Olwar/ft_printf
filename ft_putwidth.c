@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putwidth.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olwar <olwar@student.42.fr>                +#+  +:+       +#+        */
+/*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 10:31:04 by olwar             #+#    #+#             */
-/*   Updated: 2022/02/17 13:58:07 by olwar            ###   ########.fr       */
+/*   Updated: 2022/02/21 15:19:38 by oairola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	ft_putwidth(va_list args, t_node *head, char *format_part)
 	t_node	*ptr;
 
 	i = 0;
+	j = -1;
+	ptr = head;
 	while (ptr != NULL)
 	{
 		if (ptr->data == '*')
@@ -27,7 +29,7 @@ void	ft_putwidth(va_list args, t_node *head, char *format_part)
 			j = -1;
 			value = va_arg(args, int);
 			while (++j < value)
-				write(1, ' ', 1);
+				write(1, " ", 1);
 			return ;
 		}
 		else if (ptr->data >= '1' && ptr->data <= '9')
@@ -42,9 +44,9 @@ void	ft_putwidth(va_list args, t_node *head, char *format_part)
 			}
 			j = -1;
 			while (++j < value)
-				write(1, ' ', 1);
+				write(1, " ", 1);
 			return ;
 		}
-		i++;
+		ptr = ptr->next;
 	}
 }

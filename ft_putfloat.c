@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putfloat.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olwar <olwar@student.42.fr>                +#+  +:+       +#+        */
+/*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 14:09:06 by olwar             #+#    #+#             */
-/*   Updated: 2022/02/17 11:23:41 by olwar            ###   ########.fr       */
+/*   Updated: 2022/02/21 13:40:06 by oairola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_float(double myfloat, int limiter)
 	ft_putnbr(intpart);
 	ft_putchar('.');
 	myfloat -= intpart;
-	if (limiter == NULL)
+	if (limiter == 0)
 		myfloat *= 1000000;  //upto 6 decimal points
 	else
 		myfloat *= ((10 * limiter) / 10);
@@ -36,19 +36,15 @@ void	ft_float(double myfloat, int limiter)
 
 void	ft_putfloat(va_list args, t_node *head, char *format_part)
 {
-	long int	a;
-	int			i;
-	char		*length_flag;
 	int			j;
 	t_node		*ptr;
 
-	i = -1;
 	j = -1;
 	ptr = head;
 	while (ptr != NULL)
 	{
 		if (ptr->data == 22)
-			ft_float(va_arg(args, double), NULL);
+			ft_float(va_arg(args, double), 0);
 		if (ptr->data == 15)
 			while (format_part[++j] != '\0')
 				if (format_part[j] == '.')

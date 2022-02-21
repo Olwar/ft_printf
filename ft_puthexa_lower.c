@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_puthexa_lower.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olwar <olwar@student.42.fr>                +#+  +:+       +#+        */
+/*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 14:08:33 by olwar             #+#    #+#             */
-/*   Updated: 2022/02/17 14:38:50 by olwar            ###   ########.fr       */
+/*   Updated: 2022/02/21 15:18:13 by oairola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,7 @@ static void	ft_puthex_lower(int n)
 
 void	ft_puthexa_lower(va_list args, t_node *head, char *format_part)
 {
-	long int	a;
 	int			i;
-	char		*length_flag;
 	t_node		*ptr;
 	int			len;
 	int			value;
@@ -51,19 +49,20 @@ void	ft_puthexa_lower(va_list args, t_node *head, char *format_part)
 				if (format_part[i] == '.')
 					while (ft_intlen(ft_atoi(&format_part[i + 1])) > len)
 					{
-						write(1, '0', 1);
+						write(1, "0", 1);
 						len++;
 					}
 		}
 		if (ptr->data == 16) /* hh */
-			ft_puthex_lower(va_arg(args, unsigned char));
+			ft_puthex_lower((unsigned char)va_arg(args, unsigned int));
 		if (ptr->data == 18) /* ll */
 			ft_puthex_lower(va_arg(args, unsigned long long int));
 		if (ptr->data == 20) /* h */
-			ft_puthex_lower(va_arg(args, unsigned short int));
+			ft_puthex_lower((short int)va_arg(args, unsigned long int));
 		if (ptr->data == 21) /* l */
 			ft_puthex_lower(va_arg(args, unsigned long int));
 /* 		if (ptr->data == 25) 
 			minimum_number_of_ints (if smaller then just add 0s) */ 
+		ptr = ptr->next;
 	}
 }

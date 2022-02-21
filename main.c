@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "ft_printf.h"
 
 int main(void)
 {
@@ -10,22 +11,22 @@ int main(void)
 	printf("\ntesting string:\n");
 	ft_printf("\tHello\n");
 	printf("\tHello\n");
-	printf("\ntesting another string:\n"); */
 	ft_printf("\tHello %s\n", str);
 	printf("\tHello %s\n", str);
-	exit(1);
-	printf("\ntesting upper-case character\n");
+	printf("\ntesting another string:\n");
+ 	printf("\ntesting upper-case character\n");
 	ft_printf("\tThis... is... %cPARTA!\n", 'S');
-	printf("\tThis... is... %cPARTA!\n", 'S');
 	printf("\ntesting lower-case character\n");
 	ft_printf("\tThis... is... %canta! Ho ho ho!\n", 's');
 	printf("\tThis... is... %canta! Ho ho ho!\n", 's');
 	printf("\ntesting integer\n");
 	ft_printf("\tIs this mambo number %d\n", 5);
 	printf("\tIs this mambo number %d\n", 5);
+	printf("\tThis... is... %cPARTA!\n", 'S'); */
 	printf("\ntesting float\n");
-	ft_printf("\tSo far I've made %f on my programming career\n", 0.00);
-	printf("\tSo far I've made %f on my programming career\n", 0.00);
+	ft_printf("\tSo far I've made %f€ on my programming career\n", 0.00);
+	printf("\tSo far I've made %f€ on my programming career\n", 0.00);
+	exit(1);
 	printf("\ntesting hexadecimal\n");
 	ft_printf("\tGot an %x on my exam\n", 16);
 	printf("\tGot an %x on my exam\n", 16);
@@ -43,9 +44,9 @@ int main(void)
 	If you take an unsigned 0 and subtract 1 from it, the result wraps around, 
 	leaving a very large number (2^32-1 with the typical 32-bit integer size).
 	*/
-	printf("\ntesting a percent sign\n");
-	ft_printf("\twooow 1000%% or 1000\%\n"); 
-	printf("\twooow 1000%% or 1000\%\n");
+/* 	printf("\ntesting a percent sign\n");
+	ft_printf("\twooow 1000%% or 1000%\\n"); 
+	printf("\twooow 1000%% or 1000%\\n"); */
 	printf("\ntesting octal\n");
 	ft_printf("\tI guess this is an octal? %o Should be a b ?\n", 10);
 	printf("\tI guess this is an octal? %o Should be a b ?\n", 10);

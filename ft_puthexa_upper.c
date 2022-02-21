@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_puthexa_upper.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olwar <olwar@student.42.fr>                +#+  +:+       +#+        */
+/*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 14:08:33 by olwar             #+#    #+#             */
-/*   Updated: 2022/02/17 14:39:11 by olwar            ###   ########.fr       */
+/*   Updated: 2022/02/21 15:18:24 by oairola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,23 +32,23 @@ static void	ft_puthex_upper(int n)
 
 void	ft_puthexa_upper(va_list args, t_node *head, char *format_part)
 {
-	long int	a;
 	int			i;
-	char		*length_flag;
 	t_node		*ptr;
 
+	(void)format_part;
 	i = 0;
 	ptr = head;
 	while (ptr != NULL)
 	{
 		if (ptr->data == 16) /* hh */
-			ft_puthex_upper(va_arg(args, unsigned char));
+			ft_puthex_upper((unsigned char)va_arg(args, unsigned int));
 		if (ptr->data == 18) /* ll */
 			ft_puthex_upper(va_arg(args, unsigned long long int));
 		if (ptr->data == 20) /* h */
-			ft_puthex_upper(va_arg(args, unsigned short int));
+			ft_puthex_upper((short int)va_arg(args, unsigned long int));
 		if (ptr->data == 21) /* l */
 			ft_puthex_upper(va_arg(args, unsigned long int));
 			/* minimum_number_of_ints (is smaller then just add 0s) */
+		ptr = ptr->next;
 	}
 }

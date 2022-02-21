@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_printf.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olwar <olwar@student.42.fr>                +#+  +:+       +#+        */
+/*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 12:00:16 by olwar             #+#    #+#             */
-/*   Updated: 2022/02/17 14:31:19 by olwar            ###   ########.fr       */
+/*   Updated: 2022/02/21 16:10:33 by oairola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,14 @@ static void	ft_putlongnbr(long int n)
 		ft_putchar(n + '0');
 }
 
-void	ft_put_d_and_i(va_list args, t_node *head, char *format_part)
+void	ft_putnbr_printf(va_list args, t_node *head, char *format_part)
 {
-	long int	a;
 	int			i;
-	char		*length_flag;
+	long int	a;
 	t_node		*ptr;
 	int			len;
 	int			value;
+
 	i = 0;
 	ptr = head;
 	while (ptr != NULL)
@@ -48,23 +48,24 @@ void	ft_put_d_and_i(va_list args, t_node *head, char *format_part)
 				if (format_part[i] == '.')
 					while (ft_intlen(ft_atoi(&format_part[i + 1])) > len)
 					{
-						write(1, '0', 1);
+						write(1, "0", 1);
 						len++;
 					}
 		}
 		if (ptr->data == 16) /* hh */
-			ft_putnbr(va_arg(args, unsigned char));
-		else if (ptr->data == 18) /* ll */
-			ft_putnbr(va_arg(args, unsigned long long int));
-		else if (ptr->data == 20) /* h */
-			ft_putnbr(va_arg(args, unsigned short int));
-		else if (ptr->data == 21) /* l */
-			ft_putnbr(va_arg(args, unsigned long int));
+			ft_putlongnbr((unsigned char)va_arg(args, unsigned int));
+		if (ptr->data == 18) /* ll */
+			ft_putlongnbr(va_arg(args, unsigned long long int));
+		if (ptr->data == 20) /* h */
+			ft_putlongnbr((short int)va_arg(args, unsigned long int));
+		if (ptr->data == 21) /* l */
+			ft_putlongnbr(va_arg(args, unsigned long int));
 /* 		if (ptr->data == 25) 
 			minimum_number_of_ints (if smaller then just add 0s) */ 
 		else
 			a = (long int)va_arg(args, int);
 			ft_putlongnbr(a);
+		ptr = ptr->next;
 	}
 
 }

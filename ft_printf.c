@@ -7,7 +7,7 @@ va_arg = pulls them from memory on by one
 va_end = just to tell the compiler to end
 */
 
-static const t_converter *myarray[33] =
+t_converter *myarray[34] =
 {
 	ft_puthash, /* if o then first char is 0, if x then nonzero result = 0x */
 	ft_putzerofill,
@@ -32,12 +32,11 @@ static const t_converter *myarray[33] =
 	ft_literally_do_nothing,
 	ft_literally_do_nothing,
 	ft_literally_do_nothing,
-	ft_literally_do_nothing,
-	ft_literally_do_nothing,
+	ft_putnbr_printf,
 	ft_putoctal,
 	ft_puthexa_lower,
 	ft_puthexa_upper,
-	ft_putchar,
+	ft_putchar_printf,
 	ft_putstr_printf,
 	ft_putpointer,
 	ft_putfloat,
@@ -70,6 +69,51 @@ void	add_at_end(t_node *head, int data)
 	ptr->next = temp;
 }
 
+void	*ft_zmemcpy(void *dst, const void *src, size_t n)
+{
+	unsigned char	*dst_copy;
+	unsigned char	*src_copy;
+	size_t			i;
+
+	if (src == NULL && dst == NULL)
+		return (NULL);
+	i = 0;
+	src_copy = (unsigned char *)src;
+	dst_copy = (unsigned char *)dst;
+	while (i < n)
+	{
+		dst_copy[i] = src_copy[i];
+		i++;
+	}
+	return (dst_copy);
+}
+
+t_node	*ft_zlstnew(int content, size_t	content_size)
+{
+	t_node	*new_node;
+
+	new_node = (t_node *)malloc(sizeof(t_node));
+	if (new_node == NULL)
+		return (NULL);
+	if (content != 0)
+	{
+		new_node->data = (int)malloc(content_size);
+		if (new_node == NULL)
+		{
+			free(new_node);
+			return (NULL);
+		}
+		new_node->data = content;
+		new_node->next = NULL;
+	}
+	else
+	{
+		new_node->data = 0;
+		new_node->next = NULL;
+	}
+	return (new_node);
+}
+
 t_node	*checker(t_prlist *pr, char *format_part)
 {
 	int	j;
@@ -85,7 +129,7 @@ t_node	*checker(t_prlist *pr, char *format_part)
 			if (pr->all_the_info[pr->i] == format_part[j])
 			{
 				if (head == NULL)
-					head = ft_lstnew(pr->i, sizeof(int));
+					head = ft_zlstnew(pr->i, sizeof(int));
 				else
 					add_at_end(head, pr->i);
 			}
@@ -95,7 +139,7 @@ t_node	*checker(t_prlist *pr, char *format_part)
 	return (head);
 }
 
-char	*initializer(char *format_part, va_list args)
+void	initializer(char *format_part, va_list args)
 {
 	t_prlist	pr;
 	t_node		*head;
@@ -128,7 +172,6 @@ int	ft_printf(const char *format, ...)
 {
 	int		i;
 	va_list	args;
-	char	*special_string_part;
 	char	*format_part;
 
 	i = -1;
@@ -140,10 +183,10 @@ int	ft_printf(const char *format, ...)
 			format_part = ft_cutter(format, &i); /* cuts the formatter part */
 			initializer(format_part, args); 
 			/* special_printer_for_my_special_baby(special_string_part); */
-			i--;
 		}
 		else
 			write(1, &format[i], 1);
 	}
 	va_end(args);
+	return (1);
 }
