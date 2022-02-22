@@ -22,11 +22,9 @@ int main(void)
 	printf("\ntesting integer\n");
 	ft_printf("\tIs this mambo number %d\n", 5);
 	printf("\tIs this mambo number %d\n", 5);
-	printf("\tThis... is... %cPARTA!\n", 'S'); */
 	printf("\ntesting float\n");
 	ft_printf("\tSo far I've made %f€ on my programming career\n", 0.00);
 	printf("\tSo far I've made %f€ on my programming career\n", 0.00);
-	exit(1);
 	printf("\ntesting hexadecimal\n");
 	ft_printf("\tGot an %x on my exam\n", 16);
 	printf("\tGot an %x on my exam\n", 16);
@@ -36,9 +34,11 @@ int main(void)
 	printf("\ntesting a negative unsigned integer\n");
 	ft_printf("\tWow this ia big number %u\n", (1-2));
 	printf("\tWow this ia big number %u\n", (1-2));
+	printf("\tThis... is... %cPARTA!\n", 'S'); */
 	printf("\ntesting a pointer\n");
 	ft_printf("\tAddress: %p\n", str); 
 	printf("\tAddress: %p\n", str);
+	exit(1);
 	/*
 	An unsigned is an integer that can never be negative. 
 	If you take an unsigned 0 and subtract 1 from it, the result wraps around, 

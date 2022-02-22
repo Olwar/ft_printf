@@ -6,7 +6,7 @@
 /*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 12:00:16 by olwar             #+#    #+#             */
-/*   Updated: 2022/02/21 16:10:33 by oairola          ###   ########.fr       */
+/*   Updated: 2022/02/22 09:21:04 by oairola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	ft_putnbr_printf(va_list args, t_node *head, char *format_part)
 	ptr = head;
 	while (ptr != NULL)
 	{
-		if (ptr->data == 25) /* . */
+		if (ptr->data == 15) /* . */
 		{
 			value = va_arg(args, int);
 			len = ft_intlen(value);
@@ -54,17 +54,19 @@ void	ft_putnbr_printf(va_list args, t_node *head, char *format_part)
 		}
 		if (ptr->data == 16) /* hh */
 			ft_putlongnbr((unsigned char)va_arg(args, unsigned int));
-		if (ptr->data == 18) /* ll */
+		else if (ptr->data == 18) /* ll */
 			ft_putlongnbr(va_arg(args, unsigned long long int));
-		if (ptr->data == 20) /* h */
+		else if (ptr->data == 20) /* h */
 			ft_putlongnbr((short int)va_arg(args, unsigned long int));
-		if (ptr->data == 21) /* l */
+		else if (ptr->data == 21) /* l */
 			ft_putlongnbr(va_arg(args, unsigned long int));
-/* 		if (ptr->data == 25) 
-			minimum_number_of_ints (if smaller then just add 0s) */ 
+ 		else if (ptr->data == 25) 
+			ft_putlongnbr(va_arg(args, unsigned int));
 		else
+		{
 			a = (long int)va_arg(args, int);
 			ft_putlongnbr(a);
+		}
 		ptr = ptr->next;
 	}
 

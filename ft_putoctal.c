@@ -6,13 +6,13 @@
 /*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 14:05:16 by olwar             #+#    #+#             */
-/*   Updated: 2022/02/21 15:18:46 by oairola          ###   ########.fr       */
+/*   Updated: 2022/02/22 09:13:52 by oairola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	ft_putoct(int n)
+static void	ft_putoct(unsigned long int n)
 {
 	if (n < 0)
 	{
@@ -40,7 +40,7 @@ void	ft_putoctal(va_list args, t_node *head, char *format_part)
 	ptr = head;
 	while (ptr != NULL)
 	{
-		if (ptr->data == 25) /* . */
+		if (ptr->data == 15) /* . */
 		{
 			value = va_arg(args, int);
 			len = ft_intlen(value);
@@ -63,7 +63,7 @@ void	ft_putoctal(va_list args, t_node *head, char *format_part)
 /* 		if (ptr->data == 25) 
 			minimum_number_of_ints (if smaller then just add 0s) */ 
 		else
-			a = (long int)va_arg(args, int);
+			a = va_arg(args, unsigned long int);
 			ft_putoct(a);
 		ptr = ptr->next;
 	}

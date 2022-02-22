@@ -7,7 +7,7 @@ va_arg = pulls them from memory on by one
 va_end = just to tell the compiler to end
 */
 
-t_converter *myarray[34] =
+t_converter *myarray[33] =
 {
 	ft_puthash, /* if o then first char is 0, if x then nonzero result = 0x */
 	ft_putzerofill,
@@ -32,7 +32,7 @@ t_converter *myarray[34] =
 	ft_literally_do_nothing,
 	ft_literally_do_nothing,
 	ft_literally_do_nothing,
-	ft_literally_do_nothing,
+	ft_putnbr_printf,
 	ft_putnbr_printf,
 	ft_putoctal,
 	ft_puthexa_lower,

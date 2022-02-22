@@ -6,7 +6,7 @@
 /*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 14:08:33 by olwar             #+#    #+#             */
-/*   Updated: 2022/02/21 15:18:24 by oairola          ###   ########.fr       */
+/*   Updated: 2022/02/22 09:04:44 by oairola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ void	ft_puthexa_upper(va_list args, t_node *head, char *format_part)
 		if (ptr->data == 21) /* l */
 			ft_puthex_upper(va_arg(args, unsigned long int));
 			/* minimum_number_of_ints (is smaller then just add 0s) */
+		else 
+			ft_puthex_upper(va_arg(args, int));
 		ptr = ptr->next;
 	}
 }
