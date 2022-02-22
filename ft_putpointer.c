@@ -6,7 +6,7 @@
 /*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 15:10:58 by olwar             #+#    #+#             */
-/*   Updated: 2022/02/22 14:19:47 by oairola          ###   ########.fr       */
+/*   Updated: 2022/02/22 15:49:59 by oairola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void	ft_putpointer(va_list args, t_node *head, char *format_part)
 	ptr = va_arg(args, unsigned int);
     ft_putchar('0'); 
 	ft_putchar('x');
-	printf ("here: %lu\n", sizeof(ptr) << 3);
 	i = (sizeof(ptr) << 3) - 4;
     while (i>=0) 
 	{

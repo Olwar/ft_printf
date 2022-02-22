@@ -4,7 +4,7 @@
 
 int main(void)
 {
-	//char *str = "Ma'am";
+	char *str = "Ma'am";
 	
 /* 	printf("hello");
 	system("whoami");
@@ -35,10 +35,11 @@ int main(void)
 	printf("\ntesting a negative unsigned integer\n");
 	ft_printf("\tWow this ia big number %u\n", (1-2));
 	printf("\tWow this ia big number %u\n", (1-2));
+	*/
 	printf("\ntesting a pointer\n");
 	ft_printf("\tAddress: %p\n", str); 
 	printf("\tAddress: %p\n", str);
-	*/
+	exit(1);
 	/*
 	An unsigned is an integer that can never be negative. 
 	If you take an unsigned 0 and subtract 1 from it, the result wraps around, 
@@ -57,7 +58,6 @@ int main(void)
 	printf("\ntesting decimal formatting\n");
 	ft_printf("\tDon't let this be devil's number: %.1f\n", 6.66);
 	printf("\tDon't let this be devil's number: %.1f\n", 6.66);
-	exit(1);
 	printf("\nSpecial characters:\n");
 	ft_printf("tab: \tBackspace\b form feed: \f, newline: \n carriage return:\n delete\r vertical tab: \v and a backslash: \\");
 	printf("tab: \tBackspace\b form feed: \f, newline: \n carriage return:\n delete\r vertical tab: \v and a backslash: \\");
