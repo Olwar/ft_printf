@@ -6,14 +6,14 @@
 /*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 15:10:58 by olwar             #+#    #+#             */
-/*   Updated: 2022/02/22 15:49:59 by oairola          ###   ########.fr       */
+/*   Updated: 2022/02/22 16:13:08 by oairola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
 
-char hex_digit(unsigned int v) {
+char hex_digit(uintptr_t v) {
     if (v >= 0 && v < 10)
         return '0' + v;
     else
@@ -22,20 +22,19 @@ char hex_digit(unsigned int v) {
 
 void	ft_putpointer(va_list args, t_node *head, char *format_part)
 {
-    int i;
-   	unsigned int	ptr;
+	int i;
+	uintptr_t	ptr;
 
 	(void) head;
 	(void) format_part;
-	ptr = va_arg(args, unsigned int);
+	ptr = va_arg(args, uintptr_t);
     ft_putchar('0'); 
 	ft_putchar('x');
-	i = (sizeof(ptr) << 3) - 4;
-    while (i>=0) 
+	i = 32;
+    while (i>=0)
 	{
         ft_putchar(hex_digit((ptr >> i) & 0xf));
 		i -= 4;
-		/* printf("i is:\n%d\n\n\n\n", i);  */
     }
 }
 /* 
