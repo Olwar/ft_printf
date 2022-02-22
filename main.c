@@ -4,7 +4,7 @@
 
 int main(void)
 {
-	char *str = "Ma'am";
+	//char *str = "Ma'am";
 	
 /* 	printf("hello");
 	system("whoami");
@@ -16,6 +16,7 @@ int main(void)
 	printf("\ntesting another string:\n");
  	printf("\ntesting upper-case character\n");
 	ft_printf("\tThis... is... %cPARTA!\n", 'S');
+	printf("\tThis... is... %cPARTA!\n", 'S'); 
 	printf("\ntesting lower-case character\n");
 	ft_printf("\tThis... is... %canta! Ho ho ho!\n", 's');
 	printf("\tThis... is... %canta! Ho ho ho!\n", 's');
@@ -34,11 +35,10 @@ int main(void)
 	printf("\ntesting a negative unsigned integer\n");
 	ft_printf("\tWow this ia big number %u\n", (1-2));
 	printf("\tWow this ia big number %u\n", (1-2));
-	printf("\tThis... is... %cPARTA!\n", 'S'); */
 	printf("\ntesting a pointer\n");
 	ft_printf("\tAddress: %p\n", str); 
 	printf("\tAddress: %p\n", str);
-	exit(1);
+	*/
 	/*
 	An unsigned is an integer that can never be negative. 
 	If you take an unsigned 0 and subtract 1 from it, the result wraps around, 
@@ -46,13 +46,15 @@ int main(void)
 	*/
 /* 	printf("\ntesting a percent sign\n");
 	ft_printf("\twooow 1000%% or 1000%\\n"); 
-	printf("\twooow 1000%% or 1000%\\n"); */
+	printf("\twooow 1000%% or 1000%\\n"); 
 	printf("\ntesting octal\n");
-	ft_printf("\tI guess this is an octal? %o Should be a b ?\n", 10);
-	printf("\tI guess this is an octal? %o Should be a b ?\n", 10);
+	ft_printf("\tI guess this is an octal? %o Should be a 12 ?\n", 10);
+	printf("\tI guess this is an octal? %o Should be a 12 ?\n", 10);
+	*/
 	printf("\ntesting zero-fill\n");
 	ft_printf("\tYou miss 1%02d%% of the shots you don't take\n", 0);
 	printf("\tYou miss 1%02d%% of the shots you don't take\n", 0);
+	exit(1);
 	printf("\ntesting decimal formatting\n");
 	ft_printf("\tDon't let this be devil's number: %.1f\n", 6.66);
 	printf("\tDon't let this be devil's number: %.1f\n", 6.66);

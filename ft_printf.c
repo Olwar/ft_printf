@@ -33,7 +33,6 @@ t_converter *myarray[33] =
 	ft_literally_do_nothing,
 	ft_literally_do_nothing,
 	ft_putnbr_printf,
-	ft_putnbr_printf,
 	ft_putoctal,
 	ft_puthexa_lower,
 	ft_puthexa_upper,
