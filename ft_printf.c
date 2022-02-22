@@ -23,7 +23,6 @@ t_converter *myarray[33] =
 	ft_putwidth,
 	ft_putwidth,
 	ft_putwidth,
-	ft_putwidth,
 	ft_literally_do_nothing,
 	ft_literally_do_nothing,
 	ft_literally_do_nothing,
@@ -33,7 +32,9 @@ t_converter *myarray[33] =
 	ft_literally_do_nothing,
 	ft_literally_do_nothing,
 	ft_putnbr_printf,
+	ft_putnbr_printf,
 	ft_putoctal,
+	ft_putnbr_printf,
 	ft_puthexa_lower,
 	ft_puthexa_upper,
 	ft_putchar_printf,
@@ -145,7 +146,6 @@ void	initializer(char *format_part, va_list args)
 	t_node		*head;
 	t_node		*ptr;
 	/* to remember:    0123456789012345678901234567890123 */
-	/* add L */
 	pr.all_the_info = "#0- +123456789*.hhllhldiouxXcspf%";
 	head = checker(&pr, format_part);
 	ptr = head;
@@ -160,10 +160,10 @@ void	initializer(char *format_part, va_list args)
 	} */
 	while (ptr != NULL)
 	{
-		if ((ptr->data >= 0 && ptr->data <= 14) || (ptr->data >= 23))
+		if ((ptr->data >= 0 && ptr->data <= 14) || ptr->data >= 22)
 		{
 			myarray[ptr->data](args, head, format_part);
-			if (ptr->data == 0)
+			if (ptr->data == 1)
 				ptr = ptr->next;
 		}
 		ptr = ptr->next;

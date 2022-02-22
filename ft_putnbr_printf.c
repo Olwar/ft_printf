@@ -6,7 +6,7 @@
 /*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 12:00:16 by olwar             #+#    #+#             */
-/*   Updated: 2022/02/22 09:21:04 by oairola          ###   ########.fr       */
+/*   Updated: 2022/02/22 14:54:47 by oairola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ void	ft_putnbr_printf(va_list args, t_node *head, char *format_part)
 		{
 			a = (long int)va_arg(args, int);
 			ft_putlongnbr(a);
+			break;
 		}
 		ptr = ptr->next;
 	}

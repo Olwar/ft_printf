@@ -50,14 +50,14 @@ int main(void)
 	printf("\ntesting octal\n");
 	ft_printf("\tI guess this is an octal? %o Should be a 12 ?\n", 10);
 	printf("\tI guess this is an octal? %o Should be a 12 ?\n", 10);
-	*/
 	printf("\ntesting zero-fill\n");
-	ft_printf("\tYou miss 1%02d%% of the shots you don't take\n", 0);
-	printf("\tYou miss 1%02d%% of the shots you don't take\n", 0);
-	exit(1);
+	ft_printf("\tYou miss 1%04d of the shots you don't take\n", 0);
+	printf("\tYou miss 1%04d of the shots you don't take\n", 0);
+	*/
 	printf("\ntesting decimal formatting\n");
 	ft_printf("\tDon't let this be devil's number: %.1f\n", 6.66);
 	printf("\tDon't let this be devil's number: %.1f\n", 6.66);
+	exit(1);
 	printf("\nSpecial characters:\n");
 	ft_printf("tab: \tBackspace\b form feed: \f, newline: \n carriage return:\n delete\r vertical tab: \v and a backslash: \\");
 	printf("tab: \tBackspace\b form feed: \f, newline: \n carriage return:\n delete\r vertical tab: \v and a backslash: \\");
