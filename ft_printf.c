@@ -162,7 +162,7 @@ void	initializer(char *format_part, va_list args)
 	{
 		if ((ptr->data >= 0 && ptr->data <= 14) || (ptr->data >= 23))
 		{
-			myarray[ptr->data](args, head, format_part);
+			myarray[ptr->data](args, head, &format_part);
 		}
 		ptr = ptr->next;
 	}
