@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putpointer.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
+/*   By: olwar <olwar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 15:10:58 by olwar             #+#    #+#             */
-/*   Updated: 2022/02/22 16:13:08 by oairola          ###   ########.fr       */
+/*   Updated: 2022/02/23 10:24:32 by olwar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdio.h>
 
 char hex_digit(uintptr_t v) {
-    if (v >= 0 && v < 10)
+    if (v < 10)
         return '0' + v;
     else
         return 'a' + v - 10; // <-- Here
@@ -24,16 +24,24 @@ void	ft_putpointer(va_list args, t_node *head, char *format_part)
 {
 	int i;
 	uintptr_t	ptr;
+	char		c;
+	int			flag;
 
+	flag = 0;
 	(void) head;
 	(void) format_part;
 	ptr = va_arg(args, uintptr_t);
     ft_putchar('0'); 
 	ft_putchar('x');
-	i = 32;
+	i = (sizeof(ptr) << 3) - 4;
     while (i>=0)
 	{
-        ft_putchar(hex_digit((ptr >> i) & 0xf));
+        c = hex_digit((ptr >> i) & 0xf);
+		if (c != '0' || flag == 1)
+		{
+			ft_putchar(c);
+			flag = 1;
+		}
 		i -= 4;
     }
 }

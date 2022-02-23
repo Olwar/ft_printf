@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
+/*   By: olwar <olwar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 12:14:24 by oairola           #+#    #+#             */
-/*   Updated: 2022/02/22 14:44:41 by oairola          ###   ########.fr       */
+/*   Updated: 2022/02/23 10:02:30 by olwar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "libft/libft.h"
 # include <unistd.h>
 # include <stdarg.h>
+# include <stdint.h>
 
 typedef struct t_printflist
 {

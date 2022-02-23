@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putzerofill.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
+/*   By: olwar <olwar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 15:29:47 by oairola           #+#    #+#             */
-/*   Updated: 2022/02/22 15:05:38 by oairola          ###   ########.fr       */
+/*   Updated: 2022/02/23 10:25:14 by olwar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,14 @@
 
 void	ft_putzerofill(va_list args, t_node *head, char *format_part)
 {
-	int			i;
 	int			j;
-	t_node		*ptr;
 	int			number_of_zeros;
 	int			k;
 
 	k = 0;
 	j = 0;
-	i = 0;
 	(void)(args);
-	ptr = head;
+	(void)head;
 	number_of_zeros = 0;
 	if (format_part[j] == '0')
 	{

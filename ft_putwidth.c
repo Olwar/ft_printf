@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putwidth.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
+/*   By: olwar <olwar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 10:31:04 by olwar             #+#    #+#             */
-/*   Updated: 2022/02/21 15:19:38 by oairola          ###   ########.fr       */
+/*   Updated: 2022/02/23 10:24:46 by olwar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,10 @@
 
 void	ft_putwidth(va_list args, t_node *head, char *format_part)
 {
-	int		i;
 	int		value;
 	int		j;
 	t_node	*ptr;
 
-	i = 0;
 	j = -1;
 	ptr = head;
 	while (ptr != NULL)

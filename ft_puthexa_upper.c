@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_puthexa_upper.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
+/*   By: olwar <olwar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 14:08:33 by olwar             #+#    #+#             */
-/*   Updated: 2022/02/22 09:04:44 by oairola          ###   ########.fr       */
+/*   Updated: 2022/02/23 10:03:48 by olwar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,9 @@ static void	ft_puthex_upper(int n)
 
 void	ft_puthexa_upper(va_list args, t_node *head, char *format_part)
 {
-	int			i;
 	t_node		*ptr;
 
 	(void)format_part;
-	i = 0;
 	ptr = head;
 	while (ptr != NULL)
 	{

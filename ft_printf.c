@@ -98,7 +98,7 @@ t_node	*ft_zlstnew(int content, size_t	content_size)
 		return (NULL);
 	if (content != 0)
 	{
-		new_node->data = (int)malloc(content_size);
+		new_node->data = (size_t)malloc(content_size);
 		if (new_node == NULL)
 		{
 			free(new_node);

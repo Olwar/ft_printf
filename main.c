@@ -6,14 +6,14 @@ int main(void)
 {
 	char *str = "Ma'am";
 	
-/* 	printf("hello");
+	printf("hello");
 	system("whoami");
 	printf("\ntesting string:\n");
 	ft_printf("\tHello\n");
 	printf("\tHello\n");
+	printf("\ntesting another string:\n");
 	ft_printf("\tHello %s\n", str);
 	printf("\tHello %s\n", str);
-	printf("\ntesting another string:\n");
  	printf("\ntesting upper-case character\n");
 	ft_printf("\tThis... is... %cPARTA!\n", 'S');
 	printf("\tThis... is... %cPARTA!\n", 'S'); 
@@ -35,30 +35,28 @@ int main(void)
 	printf("\ntesting a negative unsigned integer\n");
 	ft_printf("\tWow this ia big number %u\n", (1-2));
 	printf("\tWow this ia big number %u\n", (1-2));
-	*/
 	printf("\ntesting a pointer\n");
 	ft_printf("\tAddress: %p\n", str); 
 	printf("\tAddress: %p\n", str);
-	exit(1);
 	/*
 	An unsigned is an integer that can never be negative. 
 	If you take an unsigned 0 and subtract 1 from it, the result wraps around, 
 	leaving a very large number (2^32-1 with the typical 32-bit integer size).
 	*/
-/* 	printf("\ntesting a percent sign\n");
-	ft_printf("\twooow 1000%% or 1000%\\n"); 
-	printf("\twooow 1000%% or 1000%\\n"); 
 	printf("\ntesting octal\n");
-	ft_printf("\tI guess this is an octal? %o Should be a 12 ?\n", 10);
-	printf("\tI guess this is an octal? %o Should be a 12 ?\n", 10);
+	ft_printf("\tI guess this is an octal? %o == 12 ?\n", 10);
+	printf("\tI guess this is an octal? %o == 12 ?\n", 10);
 	printf("\ntesting zero-fill\n");
 	ft_printf("\tYou miss 1%04d of the shots you don't take\n", 0);
 	printf("\tYou miss 1%04d of the shots you don't take\n", 0);
-	*/
 	printf("\ntesting decimal formatting\n");
 	ft_printf("\tDon't let this be devil's number: %.1f\n", 6.66);
 	printf("\tDon't let this be devil's number: %.1f\n", 6.66);
+	exit(1);
 	printf("\nSpecial characters:\n");
 	ft_printf("tab: \tBackspace\b form feed: \f, newline: \n carriage return:\n delete\r vertical tab: \v and a backslash: \\");
 	printf("tab: \tBackspace\b form feed: \f, newline: \n carriage return:\n delete\r vertical tab: \v and a backslash: \\");
+/*  	printf("\ntesting a percent sign\n");
+	ft_printf("\twooow 1000%% or 1000%\\n"); 
+	printf("\twooow 1000%% or 1000%\\n");  */
 }
