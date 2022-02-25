@@ -7,8 +7,7 @@ int main(void)
 	char	*str = "Ma'am";
 	char	*format;
 	int		i;
-	printf("hello");
-	system("whoami");
+	system("echo Nice to meet you $(whoami)");
 	printf("\ntesting string:\n");
 	ft_printf("\tHello\n");
 	printf("\tHello\n");
@@ -74,6 +73,12 @@ int main(void)
 	ft_printf("tab: \tBackspace\b form feed: \f, newline: \n carriage return:\n delete\r vertical tab: \v and a backslash: \\");
 	printf("\n-------------------------------------------------------\n");
 	printf("tab: \tBackspace\b form feed: \f, newline: \n carriage return:\n delete\r vertical tab: \v and a backslash: \\");
+	printf("\nTesting width:\n");
+	ft_printf("\t%*d\n", 5, 10);
+	printf("\t%*d\n", 5, 10);
+	printf("\nTesting width, test 2:\n");
+	ft_printf("\t%5d\n", 10);
+	printf("\t%5d\n", 10);
 	exit(1);
 /*  	printf("\ntesting a percent sign\n");
 	ft_printf("\twooow 1000%% or 1000%\\n"); 

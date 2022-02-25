@@ -23,7 +23,7 @@ t_converter *myarray[33] =
 	ft_putwidth,
 	ft_putwidth,
 	ft_putwidth,
-	ft_literally_do_nothing,
+	ft_putwidth,
 	ft_literally_do_nothing,
 	ft_literally_do_nothing,
 	ft_literally_do_nothing,
