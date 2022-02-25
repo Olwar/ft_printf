@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_cutter.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
+/*   By: olwar <olwar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 09:59:44 by olwar             #+#    #+#             */
-/*   Updated: 2022/02/21 13:32:09 by oairola          ###   ########.fr       */
+/*   Updated: 2022/02/25 09:31:17 by olwar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,13 @@ char	*ft_cutter(const char *format, int *i)
 
 	start = *i;
 	cut_string = NULL;
+	(*i)++;
 	while (format[*i] != '\0')
 	{
 		if (format[*i] == 'd' || format[*i] == 'i' || format[*i] == 'o' || \
 		format[*i] == 'u' || format[*i] == 'x' || format[*i] == 'X' \
 		|| format[*i] == 'c' || format[*i] == 's' || format[*i] == 'p' \
-		|| format[*i] == 'f')
+		|| format[*i] == 'f' || format[*i] == '%')
 		{
 			cut_string = ft_zstrsub(format, start + 1, (*i) - start);
 			break ;

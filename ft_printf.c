@@ -161,12 +161,12 @@ void	initializer(char *format_part, va_list args)
 	while (ptr != NULL)
 	{
 		if (ptr->data == 15)
-			while (ptr->data == 15 || (ptr->data >= 5 && ptr->data <= 13))
+			while (ptr->data == 1 || ptr->data == 15 || (ptr->data >= 5 && ptr->data <= 13))
 				ptr = ptr->next;
 		if ((ptr->data >= 0 && ptr->data <= 14) || ptr->data >= 22)
 		{
 			myarray[ptr->data](args, head, format_part);
-			if (ptr->data == 1)
+			if (ptr->data == 1 && !(ptr->next->data >= 22 && ptr->next->data <= 32))
 				ptr = ptr->next;
 		}
 		ptr = ptr->next;

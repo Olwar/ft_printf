@@ -6,7 +6,7 @@
 #    By: olwar <olwar@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/01 14:43:10 by oairola           #+#    #+#              #
-#    Updated: 2022/02/25 08:40:31 by olwar            ###   ########.fr        #
+#    Updated: 2022/02/25 08:44:37 by olwar            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ clean:
 	@/bin/rm -f $(OBJECTS)
 	@make -C ./libft/ clean
 
-fclean: clean
+fclean: clean/
 	@/bin/rm -f $(NAME)
 	@make -C ./libft/ fclean
 

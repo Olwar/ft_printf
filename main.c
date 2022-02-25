@@ -4,8 +4,9 @@
 
 int main(void)
 {
-	char *str = "Ma'am";
-	
+	char	*str = "Ma'am";
+	char	*format;
+	int		i;
 	printf("hello");
 	system("whoami");
 	printf("\ntesting string:\n");
@@ -52,6 +53,23 @@ int main(void)
 	printf("\ntesting decimal formatting\n");
 	ft_printf("\tDon't let this be devil's number: %.1f\n", 6.66);
 	printf("\tDon't let this be devil's number: %.1f\n", 6.66);
+	printf("\nTesting in all the conversion specifiers in one:\n");
+	ft_printf("\t%c%s%p%d%i%o%u%x%X%f\n", 'a', str, str, 123, 456, 9, 11, 0xf, 0xf, 111.0);
+	printf("\t%c%s%p%d%i%o%u%x%X%f\n", 'a', str, str, 123, 456, 9, 11, 0xf, 0xf, 111.0);
+	printf("\ngeneral test:\n");
+	printf("\t%% %%%1iiii%+0i1 %01i- #+i%011i- #%%%%\n", 123, 456, 789, 0);
+	ft_printf("\t%% %%%1iiii%+0i1 %01i- #+i%011i- #%%%%\n", 123, 456, 789, 0);
+	format = strdup("%.10f\n");
+	i = 0;
+	while (i < 9)
+	{
+		ft_printf(format, 1234567.123456789123456789);
+		printf(format, 1234567.123456789123456789);
+		fflush(NULL);
+		format[3]++;
+		i++;
+	}
+	free(format);
 	printf("\nSpecial characters:\n");
 	ft_printf("tab: \tBackspace\b form feed: \f, newline: \n carriage return:\n delete\r vertical tab: \v and a backslash: \\");
 	printf("\n-------------------------------------------------------\n");
