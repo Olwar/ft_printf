@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putfloat.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
+/*   By: olwar <olwar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 14:09:06 by olwar             #+#    #+#             */
-/*   Updated: 2022/02/21 16:51:34 by oairola          ###   ########.fr       */
+/*   Updated: 2022/02/25 08:35:34 by olwar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	ft_float(double myfloat, int limiter)
 	}
 	else
 	{
-		myfloat *= ((10 * limiter) / 10);
+		myfloat *= ((10 * limiter));
 		decipart = (signed long int)(myfloat + 0.5); //+0.5 to round of the value
 		ft_putnbr(decipart);
 	}
@@ -49,6 +49,7 @@ void	ft_putfloat(va_list args, t_node *head, char *format_part)
 {
 	int			j;
 	t_node		*ptr;
+	int			limiter;
 
 	j = -1;
 	ptr = head;
@@ -59,7 +60,11 @@ void	ft_putfloat(va_list args, t_node *head, char *format_part)
 		if (ptr->data == 15)
 			while (format_part[++j] != '\0')
 				if (format_part[j] == '.')
-					ft_float(va_arg(args, double), ft_atoi(&format_part[j]));
+				{
+					limiter = ft_atoi(&format_part[j + 1]);
+					ft_float(va_arg(args, double), limiter);
+					return ;
+				}
 		ft_float(va_arg(args, double), 0);
 		ptr = ptr->next;
 	}

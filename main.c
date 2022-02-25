@@ -52,10 +52,11 @@ int main(void)
 	printf("\ntesting decimal formatting\n");
 	ft_printf("\tDon't let this be devil's number: %.1f\n", 6.66);
 	printf("\tDon't let this be devil's number: %.1f\n", 6.66);
-	exit(1);
 	printf("\nSpecial characters:\n");
 	ft_printf("tab: \tBackspace\b form feed: \f, newline: \n carriage return:\n delete\r vertical tab: \v and a backslash: \\");
+	printf("\n-------------------------------------------------------\n");
 	printf("tab: \tBackspace\b form feed: \f, newline: \n carriage return:\n delete\r vertical tab: \v and a backslash: \\");
+	exit(1);
 /*  	printf("\ntesting a percent sign\n");
 	ft_printf("\twooow 1000%% or 1000%\\n"); 
 	printf("\twooow 1000%% or 1000%\\n");  */

@@ -6,7 +6,7 @@
 #    By: olwar <olwar@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/01 14:43:10 by oairola           #+#    #+#              #
-#    Updated: 2022/02/23 10:42:19 by olwar            ###   ########.fr        #
+#    Updated: 2022/02/25 08:40:31 by olwar            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,16 +25,16 @@ HEADERS = ft_printf.h
 all: $(NAME)
 
 $(NAME):
-	make -C ./libft/
-	clang -Wall -Wextra -Werror -c $(SOURCES)
-	ar rc $(NAME) $(OBJECTS)
+	@make -C ./libft/
+	@clang -Wall -Wextra -Werror -c $(SOURCES)
+	@ar rc $(NAME) $(OBJECTS)
 
 clean:
-	/bin/rm -f $(OBJECTS)
-	make -C ./libft/ clean
+	@/bin/rm -f $(OBJECTS)
+	@make -C ./libft/ clean
 
 fclean: clean
-	/bin/rm -f $(NAME)
-	make -C ./libft/ fclean
+	@/bin/rm -f $(NAME)
+	@make -C ./libft/ fclean
 
 re:fclean all
