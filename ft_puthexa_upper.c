@@ -6,7 +6,7 @@
 /*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 14:08:33 by olwar             #+#    #+#             */
-/*   Updated: 2022/02/28 13:06:22 by oairola          ###   ########.fr       */
+/*   Updated: 2022/02/28 13:32:40 by oairola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ static void	ft_puthex_upper(int n)
 	{
 		num = n;
 		ft_puthex_upper_neg(num);
+		return ;
 	}
 	else if (n / 16 != 0)
 	{
@@ -52,19 +53,15 @@ void	ft_puthexa_upper(va_list args, t_node *head, char *format_part)
 
 	(void)format_part;
 	ptr = head;
-	while (ptr != NULL)
-	{
-		if (ptr->data == 16) /* hh */
-			ft_puthex_upper((unsigned char)va_arg(args, unsigned int));
-		if (ptr->data == 18) /* ll */
-			ft_puthex_upper(va_arg(args, unsigned long long int));
-		if (ptr->data == 20) /* h */
-			ft_puthex_upper((short int)va_arg(args, unsigned long int));
-		if (ptr->data == 21) /* l */
-			ft_puthex_upper(va_arg(args, unsigned long int));
-			/* minimum_number_of_ints (is smaller then just add 0s) */
-		else 
-			ft_puthex_upper(va_arg(args, int));
-		ptr = ptr->next;
-	}
+	if (ptr->data == 16) /* hh */
+		ft_puthex_upper((unsigned char)va_arg(args, unsigned int));
+	if (ptr->data == 18) /* ll */
+		ft_puthex_upper(va_arg(args, unsigned long long int));
+	if (ptr->data == 20) /* h */
+		ft_puthex_upper((short int)va_arg(args, unsigned long int));
+	if (ptr->data == 21) /* l */
+		ft_puthex_upper(va_arg(args, unsigned long int));
+		/* minimum_number_of_ints (is smaller then just add 0s) */
+	else 
+		ft_puthex_upper(va_arg(args, int));
 }

@@ -6,13 +6,13 @@
 /*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 13:18:34 by oairola           #+#    #+#             */
-/*   Updated: 2021/12/07 13:58:31 by oairola          ###   ########.fr       */
+/*   Updated: 2022/02/28 13:39:19 by oairola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_intlen(int n)
+int	ft_intlen(long int n)
 {
 	int	len;
 

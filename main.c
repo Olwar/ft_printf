@@ -7,11 +7,19 @@ int main(void)
 	char	*str = "Ma'am";
 	char	*format;
 	int		i;
+	int		len;
+
 	system("echo Nice to meet you $(whoami)");
 	printf("\ntesting string:\n");
 	ft_printf("\tHello\n");
 	printf("\tHello\n");
 
+	printf("\ntesting length:\n");
+	len = ft_printf("\tShould return 19:\n");
+	printf("%d", len);
+	len = printf("\tShould return 19:\n");
+	printf("%d", len);
+	exit(1);
 	printf("\ntesting another string:\n");
 	ft_printf("\tHello %s\n", str);
 	printf("\tHello %s\n", str);
@@ -51,6 +59,10 @@ int main(void)
 	printf("\ntesting BIG negative hexadecimal\n");
 	ft_printf("\tGot an %X on my exam\n", -16);
 	printf("\tGot an %X on my exam\n", -16);
+
+	printf("\ntesting hexadecimal with width modifier\n");
+	ft_printf("\tGot an %10X on my exam\n", -16);
+	printf("\tGot an %10X on my exam\n", -16);
 
 	printf("\ntesting unsigned integer\n");
 	ft_printf("\tKimi Raikkonen is number %u\n", 1);

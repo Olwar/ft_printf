@@ -6,7 +6,7 @@
 /*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 14:08:33 by olwar             #+#    #+#             */
-/*   Updated: 2022/02/28 13:01:30 by oairola          ###   ########.fr       */
+/*   Updated: 2022/02/28 14:43:01 by oairola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	ft_puthex_lower_neg(unsigned int n)
 		ft_putchar((n - 10) + 'a');
 }
 
-static void	ft_puthex_lower(int n)
+static void	ft_puthex_lower(int n, int *length)
 {
 	unsigned int	num;
 
@@ -46,7 +46,7 @@ static void	ft_puthex_lower(int n)
 		ft_putchar((n - 10) + 'a');
 }
 
-void	ft_puthexa_lower(va_list args, t_node *head, char *format_part)
+void	ft_puthexa_lower(va_list args, t_node *head, char *format_part, int *length)
 {
 	int			i;
 	t_node		*ptr;
@@ -66,21 +66,22 @@ void	ft_puthexa_lower(va_list args, t_node *head, char *format_part)
 					while (ft_intlen(ft_atoi(&format_part[i + 1])) > len)
 					{
 						write(1, "0", 1);
+						(*length)++;
 						len++;
 					}
 		}
 		if (ptr->data == 16) /* hh */
-			ft_puthex_lower((unsigned char)va_arg(args, unsigned int));
+			ft_puthex_lower((unsigned char)va_arg(args, unsigned int), &length);
 		else if (ptr->data == 18) /* ll */
-			ft_puthex_lower(va_arg(args, unsigned long long int));
+			ft_puthex_lower(va_arg(args, unsigned long long int), &length);
 		else if (ptr->data == 20) /* h */
-			ft_puthex_lower((short int)va_arg(args, unsigned long int));
+			ft_puthex_lower((short int)va_arg(args, unsigned long int), &length);
 		else if (ptr->data == 21) /* l */
-			ft_puthex_lower(va_arg(args, unsigned long int));
+			ft_puthex_lower(va_arg(args, unsigned long int), &length);
 /* 		if (ptr->data == 25) 
 			minimum_number_of_ints (if smaller then just add 0s) */ 
 		else 
-			ft_puthex_lower(va_arg(args, int));
+			ft_puthex_lower(va_arg(args, int), &length);
 		ptr = ptr->next;
 	}
 }

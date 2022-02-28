@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_puthash.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olwar <olwar@student.42.fr>                +#+  +:+       +#+        */
+/*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 11:55:03 by oairola           #+#    #+#             */
-/*   Updated: 2022/02/17 14:38:29 by olwar            ###   ########.fr       */
+/*   Updated: 2022/02/28 14:41:50 by oairola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_puthash(va_list args, t_node *head, char *format_part)
+void	ft_puthash(va_list args, t_node *head, char *format_part, int *length)
 {
 	int	i;
 	int	value;
@@ -28,24 +28,27 @@ void	ft_puthash(va_list args, t_node *head, char *format_part)
 			if (value == 0 && ptr->data == 25)
 			{
 				ft_putchar('0');
-				ft_putoctal(args, head, format_part);
+				(*length)++;
+				ft_putoctal(args, head, format_part, &length);
 			}
 			else if (value == 0 && ptr->data == 25)
-				ft_putoctal(args, head, format_part);
+				ft_putoctal(args, head, format_part, &length);
 			else if (value == 0 && ptr->data == 27)
 			{
 				write(1, "0x", 2);
-				ft_puthexa_lower(args, head, format_part);
+				(*length) += 2;
+				ft_puthexa_lower(args, head, format_part, &length);
 			}
 			else if (value == 0 && ptr->data == 28)
 			{
 				write(1, "0X", 2);
-				ft_puthexa_upper(args, head, format_part);
+				(*length) += 2;
+				ft_puthexa_upper(args, head, format_part, &length);
 			}
 			else if (ptr->data == 28)
-				ft_puthexa_upper(args, head, format_part);
+				ft_puthexa_upper(args, head, format_part, &length);
 			else if (ptr->data == 27)
-				ft_puthexa_lower(args, head, format_part);
+				ft_puthexa_lower(args, head, format_part, &length);
 			else
 				ft_error_exit("error");
 		}
