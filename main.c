@@ -5,6 +5,7 @@
 int main(void)
 {
 	char	*str = "Ma'am";
+	char	*str2 = "19";
 	char	*format;
 	int		i;
 	int		len;
@@ -19,6 +20,13 @@ int main(void)
 	printf("%d", len);
 	len = printf("\tShould return 19:\n");
 	printf("%d", len);
+
+	printf("\ntesting length, test2:\n");
+	len = ft_printf("\tShould return %s:\n", str2);
+	printf("%d", len);
+	len = printf("\tShould return %s:\n", str2);
+	printf("%d", len);
+
 	exit(1);
 	printf("\ntesting another string:\n");
 	ft_printf("\tHello %s\n", str);

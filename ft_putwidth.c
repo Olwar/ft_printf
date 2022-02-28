@@ -6,7 +6,7 @@
 /*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 10:31:04 by olwar             #+#    #+#             */
-/*   Updated: 2022/02/28 14:22:29 by oairola          ###   ########.fr       */
+/*   Updated: 2022/02/28 15:48:53 by oairola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int		lenfunx(va_list args2, t_node *head, char *format_part)
 	} */
 }
 
-void	ft_putwidth(va_list args, t_node *head, char *format_part)
+int	ft_putwidth(va_list args, t_node *head, char *format_part)
 {
 	int		value;
 	int		j;
@@ -59,8 +59,11 @@ void	ft_putwidth(va_list args, t_node *head, char *format_part)
 			j = 1;
 			value = va_arg(args, int);
 			while (++j < value)
+			{
 				write(1, " ", 1);
-			return ;
+				len++;
+			}
+			return (len);
 		}
 		else if (ptr->data >= 5 && ptr->data <= 13)
 		{
@@ -77,9 +80,13 @@ void	ft_putwidth(va_list args, t_node *head, char *format_part)
 			}
 			j = 1;
 			while (++j < value)
+			{
 				write(1, " ", 1);
-			return ;
+				len++;
+			}
+			return (len);
 		}
 		ptr = ptr->next;
 	}
+	return (len);
 }

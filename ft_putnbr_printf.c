@@ -6,17 +6,21 @@
 /*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 12:00:16 by olwar             #+#    #+#             */
-/*   Updated: 2022/02/22 14:54:47 by oairola          ###   ########.fr       */
+/*   Updated: 2022/02/28 15:45:29 by oairola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	ft_putlongnbr(long int n)
+static int	ft_putlongnbr(long int n)
 {
+	int	len;
+
+	len = 0;
 	if (n < 0)
 	{
 		ft_putchar('-');
+		len++;
 		ft_putlongnbr(-n);
 	}
 	else if (n / 10 != 0)
@@ -25,18 +29,24 @@ static void	ft_putlongnbr(long int n)
 		ft_putlongnbr(n % 10);
 	}
 	else
+	{
 		ft_putchar(n + '0');
+		len++;
+	}
+	return (len);
 }
 
-void	ft_putnbr_printf(va_list args, t_node *head, char *format_part)
+int	ft_putnbr_printf(va_list args, t_node *head, char *format_part)
 {
 	int			i;
 	long int	a;
 	t_node		*ptr;
 	int			len;
+	int			length;
 	int			value;
 
 	i = 0;
+	length = 0;
 	ptr = head;
 	while (ptr != NULL)
 	{
@@ -50,25 +60,26 @@ void	ft_putnbr_printf(va_list args, t_node *head, char *format_part)
 					{
 						write(1, "0", 1);
 						len++;
+						length++;
 					}
 		}
 		if (ptr->data == 16) /* hh */
-			ft_putlongnbr((unsigned char)va_arg(args, unsigned int));
+			length += ft_putlongnbr((unsigned char)va_arg(args, unsigned int));
 		else if (ptr->data == 18) /* ll */
-			ft_putlongnbr(va_arg(args, unsigned long long int));
+			length += ft_putlongnbr(va_arg(args, unsigned long long int));
 		else if (ptr->data == 20) /* h */
-			ft_putlongnbr((short int)va_arg(args, unsigned long int));
+			length += ft_putlongnbr((short int)va_arg(args, unsigned long int));
 		else if (ptr->data == 21) /* l */
-			ft_putlongnbr(va_arg(args, unsigned long int));
+			length += ft_putlongnbr(va_arg(args, unsigned long int));
  		else if (ptr->data == 25) 
-			ft_putlongnbr(va_arg(args, unsigned int));
+			length += ft_putlongnbr(va_arg(args, unsigned int));
 		else
 		{
 			a = (long int)va_arg(args, int);
-			ft_putlongnbr(a);
+			length += ft_putlongnbr(a);
 			break;
 		}
 		ptr = ptr->next;
 	}
-
+	return (length);
 }

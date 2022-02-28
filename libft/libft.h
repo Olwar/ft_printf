@@ -6,7 +6,7 @@
 /*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 14:13:13 by oairola           #+#    #+#             */
-/*   Updated: 2022/01/25 15:48:46 by oairola          ###   ########.fr       */
+/*   Updated: 2022/02/28 15:49:46 by oairola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 int		ft_wordcount(char const *s, char c);
 int		ft_sqrt(int nb);
 int		ft_iswhitespace(char s);
-int		ft_intlen(int n);
+int		ft_intlen(long int n);
 int		ft_hypotenuse(int a, int b);
 char	*ft_strndup(const char *s1, size_t n);
 int		*ft_intdup(int const *src, size_t len);

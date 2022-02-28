@@ -3,22 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putsign.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olwar <olwar@student.42.fr>                +#+  +:+       +#+        */
+/*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 10:18:13 by olwar             #+#    #+#             */
-/*   Updated: 2022/02/25 11:45:36 by olwar            ###   ########.fr       */
+/*   Updated: 2022/02/28 15:47:14 by oairola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putsign(va_list args, t_node *head, char *format_part)
+int	ft_putsign(va_list args, t_node *head, char *format_part)
 {
 	int		value;
 	t_node	*ptr;
 	int		i;
 	va_list args2;
+	int		len;
 
+	len = 0;
 	va_copy(args2, args);
 	ptr = head;
 	i = -1;
@@ -35,11 +37,13 @@ void	ft_putsign(va_list args, t_node *head, char *format_part)
 					if (value > 0)
 					{
 						write(1, "+", 1);
-						return ;
+						len++;
+						return (len);
 					}
 				}
 			}
 		}
 		ptr = ptr->next;
 	}
+	return (len);
 }

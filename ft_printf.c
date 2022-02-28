@@ -140,16 +140,18 @@ t_node	*checker(t_prlist *pr, char *format_part)
 	return (head);
 }
 
-void	initializer(char *format_part, va_list args, int *length)
+int	initializer(char *format_part, va_list args)
 {
 	t_prlist	pr;
 	t_node		*head;
 	t_node		*ptr;
+	int			len;
 	/* to remember:    0123456789012345678901234567890123 */
 	pr.all_the_info = "#0- +123456789*.hhllhldiouxXcspf%";
 	head = checker(&pr, format_part);
 	ptr = head;
 	pr.i = 0;
+	len = 0;
 /* 	while (pr.info_array[pr.i] != NULL)
 	{
 		if ((pr.i >= 0 && pr.i <= 14) || (pr.i >= 23))
@@ -165,12 +167,13 @@ void	initializer(char *format_part, va_list args, int *length)
 				ptr = ptr->next;
 		if ((ptr->data >= 0 && ptr->data <= 14) || ptr->data >= 22)
 		{
-			myarray[ptr->data](args, head, format_part, &length);
+			len += myarray[ptr->data](args, head, format_part);
 			if (ptr->data == 1 && !(ptr->next->data >= 22 && ptr->next->data <= 32))
 				ptr = ptr->next;
 		}
 		ptr = ptr->next;
 	}
+	return (len);
 }
 
 
@@ -179,7 +182,7 @@ int	ft_printf(const char *format, ...)
 	int			i;
 	va_list		args;
 	char		*format_part;
-	static int	length;
+	int			length;
 
 	i = -1;
 	va_start(args, format);
@@ -189,13 +192,13 @@ int	ft_printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			format_part = ft_cutter(format, &i); /* cuts the formatter part */
-			initializer(format_part, args, &length); 
+			length += initializer(format_part, args); 
 			/* special_printer_for_my_special_baby(special_string_part); */
 		}
 		else
 		{
 			write(1, &format[i], 1);
-			length = length + 1;
+			length++;
 		}
 	}
 	va_end(args);

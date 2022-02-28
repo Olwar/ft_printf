@@ -6,7 +6,7 @@
 /*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 15:10:58 by olwar             #+#    #+#             */
-/*   Updated: 2022/02/28 12:17:49 by oairola          ###   ########.fr       */
+/*   Updated: 2022/02/28 15:37:56 by oairola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,22 @@ char hex_digit(uintptr_t v) {
         return 'a' + v - 10; // <-- Here
 }
 
-void	ft_putpointer(va_list args, t_node *head, char *format_part)
+int	ft_putpointer(va_list args, t_node *head, char *format_part)
 {
 	int i;
 	uintptr_t	ptr;
 	char		c;
 	int			flag;
+	int			length;
 
+	length = 0;
 	flag = 0;
 	(void) head;
 	(void) format_part;
 	ptr = va_arg(args, uintptr_t);
     ft_putchar('0'); 
 	ft_putchar('x');
+	length += 2;
 	i = (sizeof(ptr) << 3) - 4;
     while (i>=0)
 	{
@@ -40,10 +43,12 @@ void	ft_putpointer(va_list args, t_node *head, char *format_part)
 		if (c != '0' || flag == 1)
 		{
 			ft_putchar(c);
+			length++;
 			flag = 1;
 		}
 		i -= 4;
     }
+	return (length);
 }
 
 /*  static void	ft_putaddress(unsigned char n)

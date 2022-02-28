@@ -3,21 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putzerofill.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olwar <olwar@student.42.fr>                +#+  +:+       +#+        */
+/*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 15:29:47 by oairola           #+#    #+#             */
-/*   Updated: 2022/02/23 10:25:14 by olwar            ###   ########.fr       */
+/*   Updated: 2022/02/28 15:42:22 by oairola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putzerofill(va_list args, t_node *head, char *format_part)
+int	ft_putzerofill(va_list args, t_node *head, char *format_part)
 {
 	int			j;
 	int			number_of_zeros;
 	int			k;
+	int			len;
 
+	len = 0;
 	k = 0;
 	j = 0;
 	(void)(args);
@@ -34,7 +36,9 @@ void	ft_putzerofill(va_list args, t_node *head, char *format_part)
 		while (k < (number_of_zeros - 1))
 		{
 			ft_putchar('0');
+			len++;
 			k++;
 		}
 	}
+	return (len);
 }
