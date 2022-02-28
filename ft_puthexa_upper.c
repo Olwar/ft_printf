@@ -3,48 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   ft_puthexa_upper.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olwar <olwar@student.42.fr>                +#+  +:+       +#+        */
+/*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 14:08:33 by olwar             #+#    #+#             */
-/*   Updated: 2022/02/25 15:49:46 by olwar            ###   ########.fr       */
+/*   Updated: 2022/02/28 13:06:22 by oairola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
 
-unsigned int reverseBits(unsigned int num)
+static void	ft_puthex_upper_neg(unsigned int n)
 {
-    unsigned int  NO_OF_BITS = sizeof(num) * 8;
-    unsigned int reverse_num = 0, i, temp;
-	int	remainder;
-	int	hexadecimalval;
-  
-    for (i = 0; i < NO_OF_BITS; i++)
-    {
-        temp = (num & (1 << i));
-        if(temp)
-            reverse_num |= (1 << ((NO_OF_BITS - 1) - i));
-    }
-	reverse_num++;
-	i = 1;
-	while (reverse_num != 0)
-    {
-        remainder = reverse_num % 10;
-        hexadecimalval = hexadecimalval + remainder * i;
-        i = i * 2;
-        reverse_num = reverse_num / 10;
-    }
-    return (hexadecimalval);
+	if (n / 16 != 0)
+	{
+		ft_puthex_upper_neg(n / 16);
+		ft_puthex_upper_neg(n % 16);
+	}
+	else if (n >= 0 && n <= 9)
+		ft_putchar(n + '0');
+	else
+		ft_putchar((n - 10) + 'A');
 }
 
 static void	ft_puthex_upper(int n)
 {
+	unsigned	num;
+
 	if (n < 0)
 	{
-		n = -n;
-		n = reverseBits(n);
-		ft_puthex_upper(n);
+		num = n;
+		ft_puthex_upper_neg(num);
 	}
 	else if (n / 16 != 0)
 	{
