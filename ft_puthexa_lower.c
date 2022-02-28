@@ -6,7 +6,7 @@
 /*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 14:08:33 by olwar             #+#    #+#             */
-/*   Updated: 2022/02/22 09:03:51 by oairola          ###   ########.fr       */
+/*   Updated: 2022/02/28 12:32:17 by oairola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 
 static void	ft_puthex_lower(int n)
 {
+	unsigned int	num;
+
 	if (n < 0)
 	{
-		ft_putchar('-');
-		ft_puthex_lower(-n);
+		num = n;
+		ft_puthex_lower(num);
 	}
 	else if (n / 16 != 0)
 	{

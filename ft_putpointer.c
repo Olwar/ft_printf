@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putpointer.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olwar <olwar@student.42.fr>                +#+  +:+       +#+        */
+/*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 15:10:58 by olwar             #+#    #+#             */
-/*   Updated: 2022/02/23 10:24:32 by olwar            ###   ########.fr       */
+/*   Updated: 2022/02/28 12:17:49 by oairola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ void	ft_putpointer(va_list args, t_node *head, char *format_part)
 		i -= 4;
     }
 }
-/* 
- static void	ft_putaddress(unsigned char n)
+
+/*  static void	ft_putaddress(unsigned char n)
 {
 	if (n < 0)
 	{

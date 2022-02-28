@@ -45,8 +45,8 @@ int main(void)
 	printf("\tGot an %X on my exam\n", 16);
 
 	printf("\ntesting negative hexadecimal\n");
-	ft_printf("\tGot an %X on my exam\n", -16);
-	printf("\tGot an %X on my exam\n", -16);
+	ft_printf("\tGot an %x on my exam\n", -16);
+	printf("\tGot an %x on my exam\n", -16);
 
 	printf("\ntesting unsigned integer\n");
 	ft_printf("\tKimi Raikkonen is number %u\n", 1);
