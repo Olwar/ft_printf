@@ -27,7 +27,12 @@ int main(void)
 	len = printf("\tShould return %s:\n", str2);
 	printf("%d", len);
 
-	exit(1);
+	printf("\ntesting length, test2:\n");
+	len = ft_printf("\tShould return %x:\n", -19);
+	printf("%d", len);
+	len = printf("\tShould return %x:\n", -19);
+	printf("%d", len);
+
 	printf("\ntesting another string:\n");
 	ft_printf("\tHello %s\n", str);
 	printf("\tHello %s\n", str);

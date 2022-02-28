@@ -6,21 +6,21 @@
 /*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 14:08:33 by olwar             #+#    #+#             */
-/*   Updated: 2022/02/28 15:44:41 by oairola          ###   ########.fr       */
+/*   Updated: 2022/02/28 16:29:25 by oairola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_puthex_lower_neg(unsigned int n)
+static int	ft_puthex_lower_neg(unsigned int n, int len)
 {
-	int	len;
+/* 	int	len;
 
-	len = 0;
+	len = 0; */
 	if (n / 16 != 0)
 	{
-		ft_puthex_lower_neg(n / 16);
-		ft_puthex_lower_neg(n % 16);
+		len = ft_puthex_lower_neg(n / 16, len);
+		len = ft_puthex_lower_neg(n % 16, len);
 	}
 	else if (n >= 0 && n <= 9)
 	{
@@ -44,13 +44,15 @@ static int	ft_puthex_lower(int n)
 	if (n < 0)
 	{
 		num = n;
-		len += ft_puthex_lower_neg(num);
+		len += ft_puthex_lower_neg(num, 0);
 		return (len);
 	}
 	else if (n / 16 != 0)
 	{
 		ft_puthex_lower(n / 16);
+		len++;
 		ft_puthex_lower(n % 16);
+		len++;
 	}
 	else if (n >= 0 && n <= 9)
 	{
