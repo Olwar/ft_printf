@@ -138,6 +138,10 @@ int main(void)
 	printf("\nTesting width, test 2:\n");
 	ft_printf("\t%5d\n", 10);
 	printf("\t%5d\n", 10);
+
+	printf("\nTesting width with zero flag:\n");
+	ft_printf("\t%05d\n", 10);
+	printf("\t%05d\n", 10);
 	exit(1);
 /*  	printf("\ntesting a percent sign\n");
 	ft_printf("\twooow 1000%% or 1000%\\n"); 

@@ -10,7 +10,7 @@ va_end = just to tell the compiler to end
 t_converter *myarray[33] =
 {
 	ft_puthash, /* if o then first char is 0, if x then nonzero result = 0x */
-	ft_putzerofill,
+	ft_putwidth,
 	ft_literally_do_nothing,
 	ft_putspace, /* print space if positive number, if not plus*/
 	ft_putsign, /* print + or - depending on number */
@@ -168,7 +168,8 @@ int	initializer(char *format_part, va_list args)
 		if ((ptr->data >= 0 && ptr->data <= 14) || ptr->data >= 22)
 		{
 			len += myarray[ptr->data](args, head, format_part);
-			if (ptr->data == 1 && !(ptr->next->data >= 22 && ptr->next->data <= 32))
+			if ((ptr->data == 1 && !(ptr->next->data >= 22 && ptr->next->data <= 32)) || \
+			((ptr->data >= 5 && ptr->data <= 13) && !(ptr->next->data >= 22 && ptr->next->data <= 32)))
 				ptr = ptr->next;
 		}
 		ptr = ptr->next;

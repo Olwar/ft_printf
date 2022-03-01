@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthexa_lower.c                                 :+:      :+:    :+:   */
+/*   ft_lengthhex.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olwar <olwar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/15 14:08:33 by olwar             #+#    #+#             */
-/*   Updated: 2022/03/01 10:13:52 by olwar            ###   ########.fr       */
+/*   Created: 2022/02/28 13:55:28 by oairola           #+#    #+#             */
+/*   Updated: 2022/03/01 10:29:42 by olwar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,10 @@ static int	ft_puthex_lower_neg(unsigned int n, int len)
 	}
 	else if (n <= 9)
 	{
-		ft_putchar(n + '0');
 		len++;
 	}
 	else
 	{
-		ft_putchar((n - 10) + 'a');
 		len++;
 	}
 	return (len);
@@ -56,18 +54,16 @@ static int	ft_puthex_lower(int n)
 	}
 	else if (n >= 0 && n <= 9)
 	{
-		ft_putchar(n + '0');
 		len++;
 	}
 	else
 	{
-		ft_putchar((n - 10) + 'a');
 		len++;
 	}
 	return (len);
 }
 
-int	ft_puthexa_lower(va_list args, t_node *head, char *format_part)
+int	hexlen_lower(va_list args, t_node *head, char *format_part)
 {
 	int			i;
 	t_node		*ptr;
@@ -87,7 +83,6 @@ int	ft_puthexa_lower(va_list args, t_node *head, char *format_part)
 				if (format_part[i] == '.')
 					while (ft_intlen(ft_atoi(&format_part[i + 1])) > len)
 					{
-						write(1, "0", 1);
 						len++;
 					}
 		}
