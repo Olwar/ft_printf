@@ -110,8 +110,8 @@ int main(void)
 	printf("\t%c%s%p%d%i%o%u%x%X%f\n", 'a', str, str, 123, 456, 9, 11, 0xf, 0xf, 111.0);
 
 	printf("\ngeneral test:\n");
-	printf("\t%% %%%1iiii%+0i1 %01i- #+i%011i- #%%%%\n", 123, 456, 789, 0);
 	ft_printf("\t%% %%%1iiii%+0i1 %01i- #+i%011i- #%%%%\n", 123, 456, 789, 0);
+	printf("\t%% %%%1iiii%+0i1 %01i- #+i%011i- #%%%%\n", 123, 456, 789, 0);
 
 	printf("\ntesting bad boi float\n");
 	format = strdup("%.10f\n");
@@ -142,7 +142,23 @@ int main(void)
 	printf("\nTesting width with zero flag:\n");
 	ft_printf("\t%05d\n", 10);
 	printf("\t%05d\n", 10);
-	exit(1);
+	
+	printf("\nTesting 42filechecker tests:\n");
+	ft_printf("\t%10x\n", 42);
+	printf("\t%10x\n", 42);
+
+	printf("\nTesting 42filechecker tests:\n");
+	ft_printf("\t%-10x\n", 42);
+	printf("\t%-10x\n", 42);
+
+/* 	printf("\nTesting 42filechecker tests:\n");
+	ft_printf("\t%5%\n");
+	printf("\t%5%\n"); */
+
+	printf("\nTesting 42filechecker tests:\n");
+	ft_printf("\t%jx\n", 4294967296);
+	printf("\t%jx\n", 4294967296);
+
 /*  	printf("\ntesting a percent sign\n");
 	ft_printf("\twooow 1000%% or 1000%\\n"); 
 	printf("\twooow 1000%% or 1000%\\n");  */

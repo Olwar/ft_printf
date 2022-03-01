@@ -6,7 +6,7 @@
 /*   By: olwar <olwar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 09:59:44 by olwar             #+#    #+#             */
-/*   Updated: 2022/02/25 09:31:17 by olwar            ###   ########.fr       */
+/*   Updated: 2022/03/01 17:14:53 by olwar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,25 +31,47 @@ char	*ft_zstrsub(char const *s, unsigned int start, size_t len)
 	return (s2);
 }
 
+int		real_char(char c)
+{
+	int		i;
+	char	*data = "#0- +123456789*.hhllhldiouxXcspf%";
+
+	i = -1;
+	while (data[++i] != '\0')
+	{
+		if (data[i] == c)
+			return (1);
+	}
+	return (0);
+}
+
 char	*ft_cutter(const char *format, int *i)
 {
 	int		start;
 	char	*cut_string;
+	int		flag;
 
 	start = *i;
+	flag = 0;
 	cut_string = NULL;
 	(*i)++;
 	while (format[*i] != '\0')
 	{
+		if (!(real_char(format[*i])))
+			return (NULL);
 		if (format[*i] == 'd' || format[*i] == 'i' || format[*i] == 'o' || \
 		format[*i] == 'u' || format[*i] == 'x' || format[*i] == 'X' \
 		|| format[*i] == 'c' || format[*i] == 's' || format[*i] == 'p' \
 		|| format[*i] == 'f' || format[*i] == '%')
 		{
 			cut_string = ft_zstrsub(format, start + 1, (*i) - start);
+			flag = 1;
 			break ;
 		}
 		(*i)++;
 	}
-	return (cut_string);
+	if (flag == 1)
+		return (cut_string);
+	else
+		return (NULL);
 }

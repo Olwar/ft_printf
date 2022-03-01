@@ -6,17 +6,18 @@
 #    By: olwar <olwar@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/01 14:43:10 by oairola           #+#    #+#              #
-#    Updated: 2022/02/25 13:13:09 by olwar            ###   ########.fr        #
+#    Updated: 2022/03/01 15:57:48 by olwar            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
-SOURCES = ft_cutter.c ft_error_exit.c ft_literally_do_nothing.c \
-ft_printf.c ft_putchar_printf.c ft_putfloat.c ft_puthash.c ft_puthexa_lower.c \
-ft_puthexa_upper.c ft_putnbr_printf.c ft_putoctal.c ft_putperc.c \
-ft_putpointer.c ft_putsign.c ft_putspace.c ft_putstr_printf.c ft_putwidth.c \
-ft_putzerofill.c
+SOURCES = ft_checkzero.c ft_cutter.c ft_error_exit.c ft_floatlen.c \
+ft_hexlen_lower.c ft_hexlen_upper.c ft_justify.c ft_literally_do_nothing.c \
+ft_octlen.c ft_printf.c ft_ptrlen.c ft_putchar_printf.c ft_putfloat.c \
+ft_puthash.c ft_puthexa_lower.c ft_puthexa_upper.c ft_putnbr_printf.c \
+ft_putoctal.c ft_putperc.c ft_putpointer.c ft_putsign.c ft_putspace.c \
+ft_putstr_printf.c ft_putwidth.c test_for_printf.c ft_checkzero.c
 
 OBJECTS = $(SOURCES:.c=.o)
 

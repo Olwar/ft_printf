@@ -6,7 +6,7 @@
 /*   By: olwar <olwar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 12:14:24 by oairola           #+#    #+#             */
-/*   Updated: 2022/03/01 12:38:35 by olwar            ###   ########.fr       */
+/*   Updated: 2022/03/01 15:03:46 by olwar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ int		floatlen(va_list args, t_node *head, char *format_part);
 int		ptrlen(va_list args, t_node *head, char *format_part);
 
 int		ft_checkzero(va_list args, t_node *head, char *format_part);
+int		ft_justify(va_list args, t_node *head, char *format_part);
 char	*ft_cutter(const char *format, int *i);
 int		ft_printf(const char *format, ...);
 void	ft_error_exit(char *str);

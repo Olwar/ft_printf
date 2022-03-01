@@ -167,6 +167,9 @@ int	initializer(char *format_part, va_list args)
 				ptr = ptr->next;
 		if ((ptr->data >= 0 && ptr->data <= 14) || ptr->data >= 22)
 		{
+			if (ptr->data == 2)
+				while (ptr->data >= 0 && ptr->data <= 13)
+					ptr = ptr->next;
 			len += myarray[ptr->data](args, head, format_part);
 			if ((ptr->data == 1 && !(ptr->next->data >= 22 && ptr->next->data <= 32)) || \
 			((ptr->data >= 5 && ptr->data <= 13) && !(ptr->next->data >= 22 && ptr->next->data <= 32)))
@@ -185,6 +188,8 @@ int	ft_printf(const char *format, ...)
 	char		*format_part;
 	int			length;
 
+	if (!format)
+		return (-1);
 	i = -1;
 	va_start(args, format);
 	length = 0;
@@ -193,6 +198,8 @@ int	ft_printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			format_part = ft_cutter(format, &i); /* cuts the formatter part */
+			if (format_part == NULL)
+				return (-1);
 			length += initializer(format_part, args); 
 			/* special_printer_for_my_special_baby(special_string_part); */
 		}
