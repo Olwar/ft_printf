@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putwidth.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
+/*   By: olwar <olwar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 10:31:04 by olwar             #+#    #+#             */
-/*   Updated: 2022/02/28 15:48:53 by oairola          ###   ########.fr       */
+/*   Updated: 2022/03/01 08:55:43 by olwar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ int		lenfunx(va_list args2, t_node *head, char *format_part)
 			return (floatlen(va_arg(args2, double)));
 	} */
 }
+
+/* INTEGROI WIDTH FUNKTIOIHIN */
 
 int	ft_putwidth(va_list args, t_node *head, char *format_part)
 {
