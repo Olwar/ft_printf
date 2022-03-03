@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_puthexa_upper.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olwar <olwar@student.42.fr>                +#+  +:+       +#+        */
+/*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 14:08:33 by olwar             #+#    #+#             */
-/*   Updated: 2022/03/01 13:54:02 by olwar            ###   ########.fr       */
+/*   Updated: 2022/03/03 10:58:59 by oairola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
 
-static int	ft_puthex_upper_neg(unsigned int n, int len)
+static int	ft_puthex_upper_neg(unsigned long int n, int len)
 {
 /* 	int	len;
 	
@@ -36,7 +36,7 @@ static int	ft_puthex_upper_neg(unsigned int n, int len)
 	return (len);
 }
 
-static int	ft_puthex_upper(int n, int len)
+static int	ft_puthex_upper(long int n, int len)
 {
 	unsigned	num;
 /* 	int			len;
@@ -84,6 +84,6 @@ int	ft_puthexa_upper(va_list args, t_node *head, char *format_part)
 		len += ft_puthex_upper(va_arg(args, unsigned long int), 0);
 		/* minimum_number_of_ints (is smaller then just add 0s) */
 	else 
-		len += ft_puthex_upper(va_arg(args, int), 0);
+		len += ft_puthex_upper(va_arg(args, long int), 0);
 	return (len);
 }

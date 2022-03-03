@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putwidth.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olwar <olwar@student.42.fr>                +#+  +:+       +#+        */
+/*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 10:31:04 by olwar             #+#    #+#             */
-/*   Updated: 2022/03/01 12:55:23 by olwar            ###   ########.fr       */
+/*   Updated: 2022/03/03 11:10:31 by oairola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int		lenfunx(va_list args2, t_node *head, char *format_part)
 	{
 		if (ptr->data == 22 || ptr->data == 23)
 		{
-			value =va_arg(args2, int);
+			value = va_arg(args2, int);
 			return (ft_intlen(value));
 		}
 		else if (ptr->data == 26)
@@ -66,6 +66,7 @@ int	ft_putwidth(va_list args, t_node *head, char *format_part)
 		if (ptr->data == 14)
 		{
 			j = 0;
+			va_copy(args2, args);
 			length = lenfunx(args2, head, format_part);
 			value = va_arg(args, int);
 			value = value - length;
