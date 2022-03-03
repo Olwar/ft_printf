@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_hexlen_lower.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olwar <olwar@student.42.fr>                +#+  +:+       +#+        */
+/*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 13:55:28 by oairola           #+#    #+#             */
-/*   Updated: 2022/03/01 13:55:03 by olwar            ###   ########.fr       */
+/*   Updated: 2022/03/03 14:36:27 by oairola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static int	ft_puthex_lower_neg(unsigned int n, int len)
 	return (len);
 }
 
-static int	ft_puthex_lower(int n, int len)
+static int	ft_puthex_lower(long int n, int len)
 {
 	unsigned int	num;
 

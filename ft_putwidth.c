@@ -6,7 +6,7 @@
 /*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 10:31:04 by olwar             #+#    #+#             */
-/*   Updated: 2022/03/03 11:10:31 by oairola          ###   ########.fr       */
+/*   Updated: 2022/03/03 13:21:19 by oairola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ int		lenfunx(va_list args2, t_node *head, char *format_part)
 			return (ptrlen(args2, head, format_part));
 		else if (ptr->data == 31)
 			return (floatlen(args2, head, format_part));
+		else if (ptr->data == 32)
+			return (1);
 		ptr = ptr->next;
 	}
 	return (0);
@@ -63,7 +65,7 @@ int	ft_putwidth(va_list args, t_node *head, char *format_part)
 	length = 0;
 	while (ptr != NULL)
 	{
-		if (ptr->data == 14)
+		if (ptr->data == 14) /* ==* */
 		{
 			j = 0;
 			va_copy(args2, args);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_hexlen_upper.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olwar <olwar@student.42.fr>                +#+  +:+       +#+        */
+/*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 10:30:20 by olwar             #+#    #+#             */
-/*   Updated: 2022/03/01 10:31:27 by olwar            ###   ########.fr       */
+/*   Updated: 2022/03/03 14:36:34 by oairola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static int	ft_puthex_upper_neg(unsigned int n, int len)
 	return (len);
 }
 
-static int	ft_puthex_upper(int n, int len)
+static int	ft_puthex_upper(long int n, int len)
 {
 	unsigned	num;
 /* 	int			len;

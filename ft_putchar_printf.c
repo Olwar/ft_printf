@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putchar_printf.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olwar <olwar@student.42.fr>                +#+  +:+       +#+        */
+/*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 11:00:33 by oairola           #+#    #+#             */
-/*   Updated: 2022/03/01 14:58:17 by olwar            ###   ########.fr       */
+/*   Updated: 2022/03/03 14:34:13 by oairola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,7 @@ int	ft_putchar_printf(va_list args, t_node *head, char *format_part)
 		}
 		ptr = ptr->next;
 	}
+	if (ft_justify(args, head, format_part))
+		len += ft_putwidth(args, head, format_part);
 	return (len);
 }

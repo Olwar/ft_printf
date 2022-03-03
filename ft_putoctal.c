@@ -6,7 +6,7 @@
 /*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 14:05:16 by olwar             #+#    #+#             */
-/*   Updated: 2022/02/28 16:32:22 by oairola          ###   ########.fr       */
+/*   Updated: 2022/03/03 14:34:37 by oairola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,7 @@ int	ft_putoctal(va_list args, t_node *head, char *format_part)
 		}
 		ptr = ptr->next;
 	}
+	if (ft_justify(args, head, format_part))
+		len += ft_putwidth(args, head, format_part);
 	return (length);
 }

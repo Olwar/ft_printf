@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: olwar <olwar@student.42.fr>                +#+  +:+       +#+         #
+#    By: oairola <oairola@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/01 14:43:10 by oairola           #+#    #+#              #
-#    Updated: 2022/03/01 15:57:48 by olwar            ###   ########.fr        #
+#    Updated: 2022/03/03 11:39:48 by oairola          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,7 @@ all: $(NAME)
 
 $(NAME):
 	@make -C ./libft/
-	@gcc -Wall -Wextra -Werror -c $(SOURCES) -fPIE -I. -I.libft/
+	@gcc -Wall -Wextra -Werror -c $(SOURCES) -I. -I.libft/
 	@ar rc $(NAME) $(OBJECTS) $(LIBOBJS)
 
 clean:

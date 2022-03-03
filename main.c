@@ -143,11 +143,11 @@ int main(void)
 	ft_printf("\t%05d\n", 10);
 	printf("\t%05d\n", 10);
 	
-	printf("\n1. mine, 2. unix: Testing 42filechecker tests:\n");
+	printf("\n1. mine, 2. unix: Testing 42filechecker tests 1:\n");
 	ft_printf("\t%10x\n", 42);
 	printf("\t%10x\n", 42);
 
-	printf("\n1. mine, 2. unix: Testing 42filechecker tests:\n");
+	printf("\n1. mine, 2. unix: Testing 42filechecker tests 2:\n");
 	ft_printf("\t%-10x\n", 42);
 	printf("\t%-10x\n", 42);
 
@@ -155,13 +155,23 @@ int main(void)
 	ft_printf("\t%5%\n");
 	printf("\t%5%\n"); */
 
-	printf("\n1. mine, 2. unix: Testing 42filechecker tests:\n");
+	printf("\n1. mine, 2. unix: Testing 42filechecker tests 3:\n");
 	ft_printf("\t%jx\n", 4294967296);
 	printf("\t%jx\n", 4294967296);
 
-	printf("\n1. mine, 2. unix: Testing 42filechecker tests:\n");
+	printf("\n1. mine, 2. unix: Testing 42filechecker tests 4:\n");
 	ft_printf("\t%lx\n", 9223372036854775807);
 	printf("\t%lx\n", 9223372036854775807);
+
+	printf("\n1. mine, 2. unix: Testing 42filechecker tests 5:\n");
+	ft_printf("\t%-5%\n");
+	printf("\t%-5%\n");
+
+	printf("\n1. mine, 2. unix: Testing 42filechecker tests 6:\n");
+	len = ft_printf("\t%-15x\n", 542);
+	printf("%d", len);
+	len = printf("\t%-15x\n", 542);
+	printf("%d", len);
 
 /*  	printf("\n1. mine, 2. unix: testing a percent sign\n");
 	ft_printf("\twooow 1000%% or 1000%\\n"); 
