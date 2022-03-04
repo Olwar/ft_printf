@@ -6,7 +6,7 @@
 /*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 10:31:04 by olwar             #+#    #+#             */
-/*   Updated: 2022/03/04 15:12:34 by oairola          ###   ########.fr       */
+/*   Updated: 2022/03/04 16:15:06 by oairola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,26 @@ int		lenfunx(va_list args2, t_node *head, char *format_part)
 {
 	t_node 	*ptr;
 	int		value;
+	int		len;
 
+	len = 0;
 	(void)format_part;
 	ptr = head;
 	while (ptr != NULL)
 	{
+		if (ptr->data == 0)
+			len += lenhash(args2, head, format_part);
 		if (ptr->data == 22 || ptr->data == 23)
 		{
 			value = va_arg(args2, int);
 			return (ft_intlen(value));
 		}
 		else if (ptr->data == 26)
-			return (hexlen_lower(args2, head, format_part));
+			return (len + hexlen_lower(args2, head, format_part));
 		else if (ptr->data == 27)
-			return (hexlen_upper(args2, head, format_part));
+			return (len + hexlen_upper(args2, head, format_part));
 		else if (ptr->data == 24 || ptr->data == 25)
-			return (octlen(args2, head, format_part));
+			return (len + octlen(args2, head, format_part));
 		else if (ptr->data == 28)
 			return (1);
 		else if (ptr->data == 29)

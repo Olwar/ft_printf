@@ -265,6 +265,9 @@ int main(void)
 	ft_printf("\t%#X\n", 0);
 	printf("\t%#X\n", 0);
 
+/* 	why does this:
+	ffffffffffffffd6 instead of
+	ffffffd6 */
 	printf("\n1. mine, 2. unix: Testing moulitest tests 21:\n");
 	ft_printf("\t%x\n", -42);
 	printf("\t%x\n", -42);
@@ -272,6 +275,8 @@ int main(void)
 	printf("\n1. mine, 2. unix: Testing moulitest tests 22:\n");
 	ft_printf("\t{%030X}\n", 0xFFFF);
 	printf("\t{%030X}\n", 0xFFFF);
+
+
 
 /* 	Doesn't compile for some reason:
 	printf("\n1. mine, 2. unix: Testing moulitest tests 12:\n");

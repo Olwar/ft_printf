@@ -6,7 +6,7 @@
 /*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 12:14:24 by oairola           #+#    #+#             */
-/*   Updated: 2022/03/04 15:11:52 by oairola          ###   ########.fr       */
+/*   Updated: 2022/03/04 16:04:50 by oairola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ int		octlen(va_list args, t_node *head, char *format_part);
 int		floatlen(va_list args, t_node *head, char *format_part);
 int		ptrlen(va_list args, t_node *head, char *format_part);
 int		ft_putstrlen(va_list args, t_node *head, char *format_part);
+int		lenhash(va_list args, t_node *head, char *format_part);
 
 int		ft_checkzero(va_list args, t_node *head, char *format_part);
 int		ft_justify(va_list args, t_node *head, char *format_part);

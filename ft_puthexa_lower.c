@@ -6,13 +6,13 @@
 /*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 14:08:33 by olwar             #+#    #+#             */
-/*   Updated: 2022/03/04 15:29:05 by oairola          ###   ########.fr       */
+/*   Updated: 2022/03/04 15:41:04 by oairola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_puthex_lower_neg(unsigned long long n, int len)
+static int	ft_puthex_lower_neg(unsigned long int n, int len)
 {
 /* 	int	len;
 
@@ -37,7 +37,7 @@ static int	ft_puthex_lower_neg(unsigned long long n, int len)
 
 static int	ft_puthex_lower(long long n, int len)
 {
-	unsigned long long num;
+	unsigned long int num;
 
 	if (n < 0)
 	{
