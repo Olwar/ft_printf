@@ -1,6 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
+/*   ft_putstrlen.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/04 15:09:54 by oairola           #+#    #+#             */
+/*   Updated: 2022/03/04 15:11:31 by oairola          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
 /*   ft_putstr_printf.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
@@ -12,7 +24,7 @@
 
 #include "ft_printf.h"
 
-int	ft_putstr_printf(va_list args, t_node *head, char *format_part)
+int	ft_putstrlen(va_list args, t_node *head, char *format_part)
 {
 	int		i;
 	int		restriction;
@@ -34,7 +46,6 @@ int	ft_putstr_printf(va_list args, t_node *head, char *format_part)
 	printable_string = va_arg(args, char *);
 	if (printable_string == NULL)
 	{
-		write(1, "(null)", 6);
 		return (len + 6);
 	}
 	i = -1;
@@ -42,12 +53,12 @@ int	ft_putstr_printf(va_list args, t_node *head, char *format_part)
 	{
 		while (++i < restriction)
 		{
-			write(1, &(printable_string[i]), 1);
 			len++;
 		}
 	}
 	else
-		write(1, printable_string, ft_strlen(printable_string));
-	len += ft_strlen(printable_string);
+	{
+		len += ft_strlen(printable_string);
+	}
 	return (len);
 }

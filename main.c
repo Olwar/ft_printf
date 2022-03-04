@@ -5,11 +5,11 @@
 
 int main(void)
 {
-	char	*str = "Ma'am";
-	char	*str2 = "19";
-	char	*format;
-	int		i;
-	int		len;
+	char					*str = "Ma'am";
+	char					*str2 = "19";
+	char					*format;
+	int						i;
+	int						len;
 
 	system("echo Nice to meet you $(whoami)");
 	printf("\n1. mine, 2. unix: testing string:\n");
@@ -203,15 +203,89 @@ int main(void)
 	ft_printf("\t%ld\n", LONG_MIN);
 	printf("\t%ld\n", LONG_MIN);
 
-	printf("\n1. mine, 2. unix: Testing moulitest tests 6:\n");
+	printf("\n1. mine, 2. unix: Testing moulitest tests 7:\n");
 	ft_printf("\t%u\n", 4294967295);
 	printf("\t%lu\n", 4294967295);
 
-	printf("\n1. mine, 2. unix: Testing moulitest tests 6:\n");
+	printf("\n1. mine, 2. unix: Testing moulitest tests 8:\n");
 	ft_printf("\t%lo, %lo\n", 0ul, ULONG_MAX);
 	printf("\t%lo, %lo\n", 0ul, ULONG_MAX);
 
+	printf("\n1. mine, 2. unix: Testing moulitest tests 9:\n");
+	ft_printf("\t%llo, %llo\n", 0llu, ULLONG_MAX);
+	printf("\t%llo, %llo\n", 0llu, ULLONG_MAX);
+
+	printf("\n1. mine, 2. unix: Testing moulitest tests 9:\n");
+	ft_printf("\t%x, %x\n", 0, UINT_MAX);
+	printf("\t%x, %x\n", 0, UINT_MAX);
+
+	printf("\n1. mine, 2. unix: Testing moulitest tests 10:\n");
+	ft_printf("\t%lx, %lx\n", 0ul, ULONG_MAX);
+	printf("\t%lx, %lx\n", 0ul, ULONG_MAX);
+
+	printf("\n1. mine, 2. unix: Testing moulitest tests 11:\n");
+	ft_printf("\t%lx, %lx\n", 0ul, ULONG_MAX);
+	printf("\t%lx, %lx\n", 0ul, ULONG_MAX);
+
+	printf("\n1. mine, 2. unix: Testing moulitest tests 12:\n");
+	ft_printf("\t%#o\n", 42);
+	printf("\t%#o\n", 42);
+
+	printf("\n1. mine, 2. unix: Testing moulitest tests 13:\n");
+	ft_printf("\t%#o\n", INT_MAX);
+	printf("\t%#o\n", INT_MAX);
+
+	printf("\n1. mine, 2. unix: Testing moulitest tests 14:\n");
+	ft_printf("\t%#o\n", 0);
+	printf("\t%#o\n", 0);
+
+	printf("\n1. mine, 2. unix: Testing moulitest tests 15:\n");
+	len = ft_printf("\t%#x\n", 42);
+	printf("%d", len);
+	len = printf("\t%#x\n", 42);
+	printf("%d", len);
+
+	printf("\n1. mine, 2. unix: Testing moulitest tests 16:\n");
+	ft_printf("\t%#x\n", INT_MAX);
+	printf("\t%#x\n", INT_MAX);
+
+	printf("\n1. mine, 2. unix: Testing moulitest tests 17:\n");
+	ft_printf("\t%#x\n", 0);
+	printf("\t%#x\n", 0);
+
+	printf("\n1. mine, 2. unix: Testing moulitest tests 18:\n");
+	ft_printf("\t%#X\n", 42);
+	printf("\t%#X\n", 42);
+
+	printf("\n1. mine, 2. unix: Testing moulitest tests 19:\n");
+	ft_printf("\t%#X\n", INT_MAX);
+	printf("\t%#X\n", INT_MAX);
+
+	printf("\n1. mine, 2. unix: Testing moulitest tests 20:\n");
+	ft_printf("\t%#X\n", 0);
+	printf("\t%#X\n", 0);
+
+	printf("\n1. mine, 2. unix: Testing moulitest tests 21:\n");
+	ft_printf("\t%x\n", -42);
+	printf("\t%x\n", -42);
+
+	printf("\n1. mine, 2. unix: Testing moulitest tests 22:\n");
+	ft_printf("\t{%030X}\n", 0xFFFF);
+	printf("\t{%030X}\n", 0xFFFF);
+
 /* 	Doesn't compile for some reason:
+	printf("\n1. mine, 2. unix: Testing moulitest tests 12:\n");
+	ft_printf("\t%#c\n", 0);
+	printf("\t%#c\n", 0);
+
+	printf("\n1. mine, 2. unix: Testing moulitest tests 12:\n");
+	ft_printf("\t%hhd\n", CHAR_MAX + 42);
+	printf("\t%hhd\n", CHAR_MAX + 42);
+
+	printf("\n1. mine, 2. unix: Testing moulitest tests 10:\n");
+	ft_printf("\t%ho, %ho\n", 0, USHRT_MAX);
+	printf("\t%ho, %ho\n", 0, USHRT_MAX);
+
 	printf("\n1. mine, 2. unix: Testing 42filechecker tests 7:\n");
 	ft_printf("\t%hhX\n", 294967296);
 	printf("\t%hhX\n", 294967296);

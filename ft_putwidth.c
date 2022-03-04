@@ -6,7 +6,7 @@
 /*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 10:31:04 by olwar             #+#    #+#             */
-/*   Updated: 2022/03/03 13:21:19 by oairola          ###   ########.fr       */
+/*   Updated: 2022/03/04 15:12:34 by oairola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int		lenfunx(va_list args2, t_node *head, char *format_part)
 		else if (ptr->data == 28)
 			return (1);
 		else if (ptr->data == 29)
-			return (ft_strlen(va_arg(args2, char *)));
+			return (ft_putstrlen(args2, head, format_part));
 		else if (ptr->data == 30)
 			return (ptrlen(args2, head, format_part));
 		else if (ptr->data == 31)

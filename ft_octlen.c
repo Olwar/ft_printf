@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_octlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olwar <olwar@student.42.fr>                +#+  +:+       +#+        */
+/*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 10:32:07 by olwar             #+#    #+#             */
-/*   Updated: 2022/03/01 10:32:54 by olwar            ###   ########.fr       */
+/*   Updated: 2022/03/04 14:18:48 by oairola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_putoct(long int n, int len)
+static int	ft_putoct(unsigned long long int n, int len)
 {
 /* 	int	len;
 	

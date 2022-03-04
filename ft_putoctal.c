@@ -6,13 +6,13 @@
 /*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 14:05:16 by olwar             #+#    #+#             */
-/*   Updated: 2022/03/04 12:40:42 by oairola          ###   ########.fr       */
+/*   Updated: 2022/03/04 14:24:47 by oairola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_putoct(long long n, int len)
+static int	ft_putoct(unsigned long long n, int len)
 {
 /* 	int	len;
 	
@@ -76,7 +76,7 @@ int	ft_putoctal(va_list args, t_node *head, char *format_part)
 		minimum_number_of_ints (if smaller then just add 0s) */ 
 	else
 	{	
-		a = (long long int)va_arg(args, int);
+		a = va_arg(args, long long int);
 		length += ft_putoct(a , 0);
 	}
 	if (ft_justify(args, head, format_part))

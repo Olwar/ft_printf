@@ -6,13 +6,13 @@
 /*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 10:30:20 by olwar             #+#    #+#             */
-/*   Updated: 2022/03/04 09:20:28 by oairola          ###   ########.fr       */
+/*   Updated: 2022/03/04 14:24:34 by oairola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_puthex_upper_neg(unsigned int n, int len)
+static int	ft_puthex_upper_neg(unsigned long long n, int len)
 {
 /* 	int	len;
 	
@@ -33,7 +33,7 @@ static int	ft_puthex_upper_neg(unsigned int n, int len)
 	return (len);
 }
 
-static int	ft_puthex_upper(long int n, int len)
+static int	ft_puthex_upper(unsigned long long n, int len)
 {
 	unsigned	num;
 /* 	int			len;
@@ -79,6 +79,6 @@ int	hexlen_upper(va_list args, t_node *head, char *format_part)
 		len += ft_puthex_upper(va_arg(args, unsigned long int), 0);
 		/* minimum_number_of_ints (is smaller then just add 0s) */
 	else 
-		len += ft_puthex_upper(va_arg(args, int), 0);
+		len += ft_puthex_upper(va_arg(args, long long int), 0);
 	return (len);
 }

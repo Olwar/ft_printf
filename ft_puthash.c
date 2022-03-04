@@ -6,7 +6,7 @@
 /*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 11:55:03 by oairola           #+#    #+#             */
-/*   Updated: 2022/02/28 15:27:16 by oairola          ###   ########.fr       */
+/*   Updated: 2022/03/04 14:47:57 by oairola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,43 +18,35 @@ int	ft_puthash(va_list args, t_node *head, char *format_part)
 	int		value;
 	t_node	*ptr;
 	int		len;
+	va_list	args2;
 
+	(void)format_part;
+	va_copy(args2, args);
 	len = 0;
 	i = 0;
 	ptr = head;
 	while (ptr != NULL)
 	{
-		if (ptr->data == 27 || ptr->data == 28 || ptr->data == 25)
+		if (ptr->data == 24 || ptr->data == 26 || ptr->data == 27)
 		{
-			value = va_arg(args, int);
-			if (value == 0 && ptr->data == 25)
+			value = va_arg(args2, int);
+			if (value != 0 && ptr->data == 24)
 			{
 				ft_putchar('0');
 				len++;
-				ft_putoctal(args, head, format_part);
 			}
-			else if (value == 0 && ptr->data == 25)
-				ft_putoctal(args, head, format_part);
-			else if (value == 0 && ptr->data == 27)
+			else if (value != 0 && ptr->data == 27)
 			{
 				write(1, "0x", 2);
 				len += 2;
-				ft_puthexa_lower(args, head, format_part);
 			}
-			else if (value == 0 && ptr->data == 28)
+			else if (value != 0 && ptr->data == 26)
 			{
 				write(1, "0X", 2);
 				len += 2;
-				ft_puthexa_upper(args, head, format_part);
 			}
-			else if (ptr->data == 28)
-				ft_puthexa_upper(args, head, format_part);
-			else if (ptr->data == 27)
-				ft_puthexa_lower(args, head, format_part);
-			else
-				ft_error_exit("error");
 		}
-		i++;
+		ptr = ptr->next;
 	}
 	return (len);
 }
