@@ -6,7 +6,7 @@
 #    By: oairola <oairola@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/01 14:43:10 by oairola           #+#    #+#              #
-#    Updated: 2022/03/03 11:39:48 by oairola          ###   ########.fr        #
+#    Updated: 2022/03/04 12:09:35 by oairola          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ ft_hexlen_lower.c ft_hexlen_upper.c ft_justify.c ft_literally_do_nothing.c \
 ft_octlen.c ft_printf.c ft_ptrlen.c ft_putchar_printf.c ft_putfloat.c \
 ft_puthash.c ft_puthexa_lower.c ft_puthexa_upper.c ft_putnbr_printf.c \
 ft_putoctal.c ft_putperc.c ft_putpointer.c ft_putsign.c ft_putspace.c \
-ft_putstr_printf.c ft_putwidth.c test_for_printf.c ft_checkzero.c
+ft_putstr_printf.c ft_putwidth.c test_for_printf.c ft_checkzero.c \
+ft_putnbr_printf_unsigned.c
 
 OBJECTS = $(SOURCES:.c=.o)
 

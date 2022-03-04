@@ -6,7 +6,7 @@
 /*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 15:22:43 by olwar             #+#    #+#             */
-/*   Updated: 2022/02/28 15:41:09 by oairola          ###   ########.fr       */
+/*   Updated: 2022/03/04 10:23:33 by oairola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,11 @@ int	ft_putstr_printf(va_list args, t_node *head, char *format_part)
 		ptr = ptr->next;
 	}
 	printable_string = va_arg(args, char *);
+	if (printable_string == NULL)
+	{
+		write(1, (void *)0, 1);
+		return (len + 1);
+	}
 	i = -1;
 	if (restriction != 0)
 	{

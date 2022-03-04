@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "ft_printf.h"
+#include <limits.h>
 
 int main(void)
 {
@@ -172,6 +173,57 @@ int main(void)
 	printf("%d", len);
 	len = printf("\t%-15x\n", 542);
 	printf("%d", len);
+
+	/* why doesn't print (null) */
+	printf("\n1. mine, 2. unix: Testing moulitest tests 1:\n");
+	ft_printf("\t{%s}\n", NULL);
+	printf("\t{%s}\n", NULL);
+
+	printf("\n1. mine, 2. unix: Testing moulitest tests 2:\n");
+	len = ft_printf("\t%d\n", -42);
+	printf("%d", len);
+	len = printf("\t%d\n", -42);
+	printf("%d", len);
+
+	printf("\n1. mine, 2. unix: Testing moulitest tests 3:\n");
+	ft_printf("\t%p\n", NULL);
+	printf("\t%p\n", NULL);
+
+	printf("\n1. mine, 2. unix: Testing moulitest tests 4:\n");
+	len = ft_printf("\t%  %\n");
+	printf("%d", len);
+	len = printf("\t%  %\n");
+	printf("%d", len);
+
+	printf("\n1. mine, 2. unix: Testing moulitest tests 5:\n");
+	ft_printf("\t%ld%ld\n", 0l, 42l);
+	printf("\t%ld%ld\n", 0l, 42l);
+
+	printf("\n1. mine, 2. unix: Testing moulitest tests 6:\n");
+	ft_printf("\t%ld\n", LONG_MIN);
+	printf("\t%ld\n", LONG_MIN);
+
+	printf("\n1. mine, 2. unix: Testing moulitest tests 6:\n");
+	ft_printf("\t%u\n", 4294967295);
+	printf("\t%lu\n", 4294967295);
+
+	printf("\n1. mine, 2. unix: Testing moulitest tests 6:\n");
+	ft_printf("\t%lo, %lo\n", 0ul, ULONG_MAX);
+	printf("\t%lo, %lo\n", 0ul, ULONG_MAX);
+
+/* 	Doesn't compile for some reason:
+	printf("\n1. mine, 2. unix: Testing 42filechecker tests 7:\n");
+	ft_printf("\t%hhX\n", 294967296);
+	printf("\t%hhX\n", 294967296);
+
+	printf("\n1. mine, 2. unix: Testing 42filechecker tests 7:\n");
+	ft_printf("\t%X\n", 4294967296);
+	printf("\t%X\n", 4294967296);
+
+
+	printf("\n1. mine, 2. unix: Testing 42filechecker tests 8:\n");
+	ft_printf("\t%llX\n", 4294967296);
+	printf("\t%llX\n", 4294967296); */
 
 /*  	printf("\n1. mine, 2. unix: testing a percent sign\n");
 	ft_printf("\twooow 1000%% or 1000%\\n"); 

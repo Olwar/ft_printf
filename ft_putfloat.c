@@ -6,27 +6,25 @@
 /*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 14:09:06 by olwar             #+#    #+#             */
-/*   Updated: 2022/03/03 14:34:07 by oairola          ###   ########.fr       */
+/*   Updated: 2022/03/04 09:22:06 by oairola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_putlongnbr(long long int n)
+static int	ft_putlongnbr(long long int n, int len)
 {
-	int	len;
-	
-	len = 0;
+
 	if (n < 0)
 	{
 		ft_putchar('-');
 		len++;
-		ft_putlongnbr(-n);
+		len += ft_putlongnbr(-n, len);
 	}
 	else if (n / 10 != 0)
 	{
-		ft_putlongnbr(n / 10);
-		ft_putlongnbr(n % 10);
+		len = ft_putlongnbr(n / 10, len);
+		len = ft_putlongnbr(n % 10, len);
 	}
 	else
 	{
@@ -42,7 +40,7 @@ int	ft_putlooongnbr(long long int n)
 	int				len;
 
 	a = (long int)n;
-	len = ft_putlongnbr(a);
+	len = ft_putlongnbr(a, 0);
 	return (len);
 }
 

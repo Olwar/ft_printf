@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putpointer.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olwar <olwar@student.42.fr>                +#+  +:+       +#+        */
+/*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 15:10:58 by olwar             #+#    #+#             */
-/*   Updated: 2022/03/01 10:59:18 by olwar            ###   ########.fr       */
+/*   Updated: 2022/03/04 10:42:08 by oairola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,11 @@ int	ft_putpointer(va_list args, t_node *head, char *format_part)
     ft_putchar('0'); 
 	ft_putchar('x');
 	length += 2;
+	if (ptr == 0)
+	{
+		write(1, "0", 1);
+		return (length + 1);
+	}
 	i = (sizeof(ptr) << 3) - 4;
     while (i>=0)
 	{

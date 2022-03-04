@@ -6,7 +6,7 @@
 /*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 10:30:20 by olwar             #+#    #+#             */
-/*   Updated: 2022/03/03 14:36:34 by oairola          ###   ########.fr       */
+/*   Updated: 2022/03/04 09:20:28 by oairola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static int	ft_puthex_upper(long int n, int len)
 	if (n < 0)
 	{
 		num = n;
-		len = ft_puthex_upper_neg(num, 0);
+		len += ft_puthex_upper_neg(num, 0);
 		return (len);
 	}
 	else if (n / 16 != 0)

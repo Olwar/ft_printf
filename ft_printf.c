@@ -34,7 +34,7 @@ t_converter *myarray[33] =
 	ft_putnbr_printf,
 	ft_putnbr_printf,
 	ft_putoctal,
-	ft_putnbr_printf,
+	ft_putnbr_printf_unsigned,
 	ft_puthexa_lower,
 	ft_puthexa_upper,
 	ft_putchar_printf,
@@ -133,6 +133,7 @@ t_node	*checker(t_prlist *pr, char *format_part)
 					head = ft_zlstnew(pr->i, sizeof(int));
 				else
 					add_at_end(head, pr->i);
+				break;
 			}
 			pr->i++;
 		}
@@ -188,18 +189,18 @@ int	ft_printf(const char *format, ...)
 	char		*format_part;
 	int			length;
 
+	va_start(args, format);
 	if (!format)
 		return (-1);
 	i = -1;
-	va_start(args, format);
 	length = 0;
 	while (format[++i] != '\0')
 	{
 		if (format[i] == '%')
 		{
-			format_part = ft_cutter(format, &i); /* cuts the formatter part */
+			format_part = ft_cutter(format, &i, args); /* cuts the formatter part */
 			if (format_part == NULL)
-				return (-1);
+				return (0);
 			length += initializer(format_part, args); 
 			/* special_printer_for_my_special_baby(special_string_part); */
 		}

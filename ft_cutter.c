@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_cutter.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olwar <olwar@student.42.fr>                +#+  +:+       +#+        */
+/*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 09:59:44 by olwar             #+#    #+#             */
-/*   Updated: 2022/03/01 17:14:53 by olwar            ###   ########.fr       */
+/*   Updated: 2022/03/04 10:50:47 by oairola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,13 @@ int		real_char(char c)
 	return (0);
 }
 
-char	*ft_cutter(const char *format, int *i)
+char	*ft_cutter(const char *format, int *i, va_list args)
 {
 	int		start;
 	char	*cut_string;
 	int		flag;
 
+	(void)args;
 	start = *i;
 	flag = 0;
 	cut_string = NULL;
