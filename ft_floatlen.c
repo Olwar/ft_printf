@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_floatlen.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olwar <olwar@student.42.fr>                +#+  +:+       +#+        */
+/*   By: olli <olli@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 10:34:57 by olwar             #+#    #+#             */
-/*   Updated: 2022/03/01 10:57:56 by olwar            ###   ########.fr       */
+/*   Updated: 2022/03/06 16:15:17 by olli             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ int	floatlen(va_list args, t_node *head, char *format_part)
 	len = 0;
 	j = -1;
 	ptr = head;
+	len += ft_lensign(args, head, format_part);
 	while (ptr != NULL)
 	{
 		if (ptr->data == 22)

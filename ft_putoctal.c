@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putoctal.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
+/*   By: olli <olli@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 14:05:16 by olwar             #+#    #+#             */
-/*   Updated: 2022/03/04 14:24:47 by oairola          ###   ########.fr       */
+/*   Updated: 2022/03/06 14:12:32 by olli             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,7 @@ static int	ft_putoct(unsigned long long n, int len)
 /* 	int	len;
 	
 	len = 0; */
-	if (n < 0)
-	{
-		ft_putchar('-');
-		len++;
-		len = ft_putoct(-n, len);
-	}
-	else if (n / 8 != 0)
+	if (n / 8 != 0)
 	{
 		len = ft_putoct(n / 8, len);
 		len = ft_putoct(n % 8, len);
@@ -48,6 +42,11 @@ int	ft_putoctal(va_list args, t_node *head, char *format_part)
 	i = 0;
 	length = 0;
 	ptr = head;
+	if (ft_hash(format_part))
+	{
+		write(1, "0", 1);
+		length++;
+	}
 	if (ptr->data == 15) /* . */
 	{
 		value = va_arg(args, int);

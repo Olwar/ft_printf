@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putspace.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
+/*   By: olli <olli@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 10:06:57 by olwar             #+#    #+#             */
-/*   Updated: 2022/03/04 11:08:47 by oairola          ###   ########.fr       */
+/*   Updated: 2022/03/06 14:13:06 by olli             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 int	ft_putspace(va_list args, t_node *head, char *format_part)
 {
 	int		i;
-	char	*value;
-	int		value2;
+	int		value;
 	t_node	*ptr;
 	int		len;
 	va_list args2;
@@ -34,21 +33,14 @@ int	ft_putspace(va_list args, t_node *head, char *format_part)
 		}
 		if (ptr->data == 3)
 		{
-			return (0);
+			break ;
 		}
 		i++;
 		ptr = ptr->next;
 	}
 	i = 0;
-	value = va_arg(args2, char *);
-	if (value == NULL)
-	{
-		write(1, " ", 1);
-		len++;
-		return (len);
-	}
-	value2 = ft_atoi(value);
-	if (value2 >= 0)
+	value = va_arg(args2, int);
+	if (value >= 0)
 	{
 		write(1, " ", 1);
 		len++;

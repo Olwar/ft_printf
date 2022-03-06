@@ -1,47 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lenhash.c                                          :+:      :+:    :+:   */
+/*   ft_put_possible_zeros_len.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olli <olli@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/14 11:55:03 by oairola           #+#    #+#             */
-/*   Updated: 2022/03/06 14:00:57 by olli             ###   ########.fr       */
+/*   Created: 2022/03/06 18:45:03 by olli              #+#    #+#             */
+/*   Updated: 2022/03/06 18:47:15 by olli             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	lenhash(va_list args, t_node *head, char *format_part)
+int	put_possible_zeros_len(va_list args, t_node *head, char *format_part)
 {
-	int		value;
 	t_node	*ptr;
-	int		len;
 	va_list	args2;
+	int		length;
+	int		len;
+	int		value;
 
-	(void)format_part;
-	va_copy(args2, args);
-	len = 0;
 	ptr = head;
 	while (ptr != NULL)
 	{
-		if (ptr->data == 24 || ptr->data == 26 || ptr->data == 27)
+		if (ptr->data == 15) /* . */
 		{
-			value = va_arg(args2, int);
-			if (value != 0 && ptr->data == 24)
+			va_copy(args2, args);
+			length = lenfunx(args2, head, format_part);
+			value = ft_dot_number(format_part);
+			while (length < value)
 			{
 				len++;
+				length++;
 			}
-			else if (value != 0 && ptr->data == 27)
-			{
-				len += 2;
-			}
-			else if (value != 0 && ptr->data == 26)
-			{
-				len += 2;
-			}
+			return (len);
 		}
 		ptr = ptr->next;
 	}
-	return (len);
+	return (0);
 }

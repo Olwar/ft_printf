@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_octlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
+/*   By: olli <olli@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 10:32:07 by olwar             #+#    #+#             */
-/*   Updated: 2022/03/04 14:18:48 by oairola          ###   ########.fr       */
+/*   Updated: 2022/03/06 14:01:18 by olli             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_putoct(unsigned long long int n, int len)
+static int	ft_putoct(long long int n, int len)
 {
 /* 	int	len;
 	
@@ -46,6 +46,8 @@ int	octlen(va_list args, t_node *head, char *format_part)
 	i = 0;
 	length = 0;
 	ptr = head;
+	if (ft_hash(format_part))
+		length++;
 	while (ptr != NULL)
 	{
 		if (ptr->data == 15) /* . */

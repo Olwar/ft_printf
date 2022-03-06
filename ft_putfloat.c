@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putfloat.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
+/*   By: olli <olli@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 14:09:06 by olwar             #+#    #+#             */
-/*   Updated: 2022/03/04 09:22:06 by oairola          ###   ########.fr       */
+/*   Updated: 2022/03/06 16:12:56 by olli             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,7 @@ int	ft_putfloat(va_list args, t_node *head, char *format_part)
 	len = 0;
 	j = -1;
 	ptr = head;
+	len += ft_putsign(args, head, format_part);
 	while (ptr != NULL)
 	{
 		if (ptr->data == 22)

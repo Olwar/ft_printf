@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
+/*   By: olli <olli@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 12:14:24 by oairola           #+#    #+#             */
-/*   Updated: 2022/03/04 16:04:50 by oairola          ###   ########.fr       */
+/*   Updated: 2022/03/06 18:49:38 by olli             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +60,19 @@ int		floatlen(va_list args, t_node *head, char *format_part);
 int		ptrlen(va_list args, t_node *head, char *format_part);
 int		ft_putstrlen(va_list args, t_node *head, char *format_part);
 int		lenhash(va_list args, t_node *head, char *format_part);
+int		ft_hash(char *format_part);
+int		ft_lensign(va_list args, t_node *head, char *format_part);
+int		ft_putnbr_len(va_list args, t_node *head, char *format_part);
+int		lenfunx(va_list args2, t_node *head, char *format_part);
+int		put_possible_zeros(va_list args, t_node *head, char *format_part);
+int		put_possible_zeros_len(va_list args, t_node *head, char *format_part);
 
 int		ft_checkzero(va_list args, t_node *head, char *format_part);
 int		ft_justify(va_list args, t_node *head, char *format_part);
 char	*ft_cutter(const char *format, int *i, va_list args);
 int		ft_printf(const char *format, ...);
 void	ft_error_exit(char *str);
+int		ft_dot_number(char *format_part);
 
 
 #endif 

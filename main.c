@@ -265,7 +265,7 @@ int main(void)
 	ft_printf("\t%#X\n", 0);
 	printf("\t%#X\n", 0);
 
-/* 	why does this:
+/* 	unsigned int is right but fucks up others, unsigned long int gives wrong
 	ffffffffffffffd6 instead of
 	ffffffd6 */
 	printf("\n1. mine, 2. unix: Testing moulitest tests 21:\n");
@@ -276,8 +276,63 @@ int main(void)
 	ft_printf("\t{%030X}\n", 0xFFFF);
 	printf("\t{%030X}\n", 0xFFFF);
 
+	printf("\n1. mine, 2. unix: Testing moulitest tests 23:\n");
+	ft_printf("\t%#10x\n", 100);
+	printf("\t%#10x\n", 100);
 
+	printf("\n1. mine, 2. unix: Testing moulitest tests 24:\n");
+	ft_printf("\t%#10x\n", 100);
+	printf("\t%#10x\n", 100);
 
+	printf("\n1. mine, 2. unix: Testing moulitest tests 25:\n");
+	ft_printf("\t% d\n", 9999);
+	printf("\t% d\n", 9999);
+
+	printf("\n1. mine, 2. unix: Testing moulitest tests 26:\n");
+	ft_printf("\t%p\n", 0);
+	printf("\t%p\n", 0);
+
+	printf("\n1. mine, 2. unix: Testing moulitest tests 27:\n");
+	ft_printf("\t%010s is a string\n", "this");
+	printf("\t%010s is a string\n", "this");
+
+	printf("\n1. mine, 2. unix: Testing moulitest tests 28:\n");
+	ft_printf("\t%+10.5d\n", 4242);
+	printf("\t%+10.5d\n", 4242);
+
+	printf("\n1. mine, 2. unix: Testing moulitest tests 29:\n");
+	ft_printf("\t%#+10.5d\n", 4242);
+	printf("\t%#+10.5d\n", 4242);
+
+	printf("\n1. mine, 2. unix: Testing moulitest tests 30:\n");
+	ft_printf("\t%#+10.5d\n", -4242);
+	printf("\t%#+10.5d\n", -4242);
+
+	printf("\n1. mine, 2. unix: Testing moulitest tests 31:\n");
+	ft_printf("\t%5.2s is a string\n", "this");
+	printf("\t%5.2s is a string\n", "this");
+
+	printf("\n1. mine, 2. unix: Testing moulitest tests 32:\n");
+	len = ft_printf("\t%5.2s is a string\n", "this");
+	printf("%d", len);
+	len = printf("\t%5.2s is a string\n", "this");
+	printf("%d", len);
+
+	printf("\n1. mine, 2. unix: Testing moulitest tests 33:\n");
+	ft_printf("\t%-10s is a string\n", "this");
+	printf("\t%-10s is a string\n", "this");
+
+	printf("\n1. mine, 2. unix: Testing moulitest tests 34:\n");
+	ft_printf("\t%-5.2s is a string\n", "this");
+	printf("\t%-5.2s is a string\n", "this");
+
+	printf("\n1. mine, 2. unix: Testing moulitest tests 35:\n");
+	ft_printf("\t%-5.2s is a string\n", "");
+	printf("\t%-5.2s is a string\n", "");
+
+	printf("\n1. mine, 2. unix: Testing moulitest tests 36:\n");
+	ft_printf("\t%4.15d\n", 42);
+	printf("\t%4.15d\n", 42);
 /* 	Doesn't compile for some reason:
 	printf("\n1. mine, 2. unix: Testing moulitest tests 12:\n");
 	ft_printf("\t%#c\n", 0);

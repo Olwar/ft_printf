@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_printf.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
+/*   By: olli <olli@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 12:00:16 by olwar             #+#    #+#             */
-/*   Updated: 2022/03/04 12:03:27 by oairola          ###   ########.fr       */
+/*   Updated: 2022/03/06 18:43:30 by olli             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ int	ft_putnbr_printf(va_list args, t_node *head, char *format_part)
 	i = 0;
 	length = 0;
 	ptr = head;
+	length += put_possible_zeros(args, head, format_part);
+	length += ft_putsign(args, head, format_part);
 	if (ptr->data == 15) /* . */
 	{
 		value = va_arg(args, int);

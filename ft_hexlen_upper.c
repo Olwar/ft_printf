@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_hexlen_upper.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
+/*   By: olli <olli@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 10:30:20 by olwar             #+#    #+#             */
-/*   Updated: 2022/03/04 14:24:34 by oairola          ###   ########.fr       */
+/*   Updated: 2022/03/06 16:14:59 by olli             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static int	ft_puthex_upper_neg(unsigned long long n, int len)
 	return (len);
 }
 
-static int	ft_puthex_upper(unsigned long long n, int len)
+static int	ft_puthex_upper(long long n, int len)
 {
 	unsigned	num;
 /* 	int			len;
@@ -67,7 +67,9 @@ int	hexlen_upper(va_list args, t_node *head, char *format_part)
 	int			len;
 
 	len = 0;
-	(void)format_part;
+	len += ft_lensign(args, head, format_part);
+	if (ft_hash(format_part))
+		len += 2;
 	ptr = head;
 	if (ptr->data == 16) /* hh */
 		len += ft_puthex_upper((unsigned char)va_arg(args, unsigned int), 0);

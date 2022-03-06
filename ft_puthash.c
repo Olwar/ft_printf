@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_puthash.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
+/*   By: olli <olli@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 11:55:03 by oairola           #+#    #+#             */
-/*   Updated: 2022/03/04 16:04:16 by oairola          ###   ########.fr       */
+/*   Updated: 2022/03/06 13:56:28 by olli             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int	ft_puthash(va_list args, t_node *head, char *format_part)
 {
-	int		i;
 	int		value;
 	t_node	*ptr;
 	int		len;
@@ -23,7 +22,6 @@ int	ft_puthash(va_list args, t_node *head, char *format_part)
 	(void)format_part;
 	va_copy(args2, args);
 	len = 0;
-	i = 0;
 	ptr = head;
 	while (ptr != NULL)
 	{

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_hexlen_lower.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oairola <oairola@student.42.fr>            +#+  +:+       +#+        */
+/*   By: olli <olli@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 13:55:28 by oairola           #+#    #+#             */
-/*   Updated: 2022/03/04 14:24:27 by oairola          ###   ########.fr       */
+/*   Updated: 2022/03/06 18:17:12 by olli             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static int	ft_puthex_lower_neg(unsigned long long n, int len)
 	return (len);
 }
 
-static int	ft_puthex_lower(unsigned long long n, int len)
+static int	ft_puthex_lower(long long n, int len)
 {
 	unsigned int	num;
 
@@ -63,9 +63,13 @@ int	hexlen_lower(va_list args, t_node *head, char *format_part)
 {
 	t_node		*ptr;
 	int			len;
+	int			min_number;
 
+	min_number = -1;
 	len = 0;
-	(void)format_part;
+	len += ft_lensign(args, head, format_part);
+	if (ft_hash(format_part))
+		len += 2;
 	ptr = head;
 	if (ptr->data == 16) /* hh */
 		len += ft_puthex_lower((unsigned char)va_arg(args, unsigned int), 0);

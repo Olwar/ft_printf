@@ -13,7 +13,7 @@ t_converter *myarray[33] =
 	ft_putwidth,
 	ft_literally_do_nothing,
 	ft_putspace, /* print space if positive number, if not plus*/
-	ft_putsign, /* print + or - depending on number */
+	ft_literally_do_nothing, /* print + or - depending on number */
 	ft_putwidth,
 	ft_putwidth,
 	ft_putwidth,
@@ -146,6 +146,7 @@ int	initializer(char *format_part, va_list args)
 	t_prlist	pr;
 	t_node		*head;
 	t_node		*ptr;
+	int			width_flag;
 	int			len;
 	/* to remember:    0123456789012345678901234567890123 */
 	pr.all_the_info = "#0- +123456789*.hhllhldiouxXcspf%";
@@ -153,6 +154,7 @@ int	initializer(char *format_part, va_list args)
 	ptr = head;
 	pr.i = 0;
 	len = 0;
+	width_flag = 0;
 /* 	while (pr.info_array[pr.i] != NULL)
 	{
 		if ((pr.i >= 0 && pr.i <= 14) || (pr.i >= 23))
@@ -163,15 +165,22 @@ int	initializer(char *format_part, va_list args)
 	} */
 	while (ptr != NULL)
 	{
+		if (ptr->data == 0)
+			ptr = ptr->next;
 		if (ptr->data == 15)
 			while (ptr->data == 1 || ptr->data == 15 || (ptr->data >= 5 && ptr->data <= 13))
 				ptr = ptr->next;
 		if ((ptr->data >= 0 && ptr->data <= 14) || ptr->data >= 22)
 		{
 			if (ptr->data == 2)
+				while ((ptr->data >= 0 && ptr->data <= 13) || ptr->data == 15)
+					ptr = ptr->next;
+			if ((ptr->data >= 5 && ptr->data <= 13 && width_flag == 1) || (ptr->data == 1 && width_flag == 1))
 				while (ptr->data >= 0 && ptr->data <= 13)
 					ptr = ptr->next;
 			len += myarray[ptr->data](args, head, format_part);
+			if ((ptr->data >= 5 && ptr->data <= 13) || (ptr->data <= 1))
+				width_flag = 1;
 			if ((ptr->data == 1 && !(ptr->next->data >= 22 && ptr->next->data <= 32)) || \
 			((ptr->data >= 5 && ptr->data <= 13) && !(ptr->next->data >= 22 && ptr->next->data <= 32)))
 				ptr = ptr->next;
@@ -200,7 +209,7 @@ int	ft_printf(const char *format, ...)
 		{
 			format_part = ft_cutter(format, &i, args); /* cuts the formatter part */
 			if (format_part == NULL)
-				return (0);
+				return (-1);
 			length += initializer(format_part, args); 
 			/* special_printer_for_my_special_baby(special_string_part); */
 		}
